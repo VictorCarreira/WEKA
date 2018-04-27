@@ -1,8 +1,8 @@
-# WEKA
-A java ANN
+# WEKA 
+A java ANN for linux
 
 <p align="center">
-  <img src="weka-3-9-2/weka.ico" width="450"/>
+  <img src="weka-3-9-2/weka.ico" width="250"/>
 </p>
 
 ### Installing and runnig:
