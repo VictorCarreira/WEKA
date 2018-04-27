@@ -20,4 +20,4 @@ II - To run Weka, change into that directory and type
 
 ### PUC discipline ELE2394 2018-1
 
-This is also the project of the discipline Artificial Neural Network I. 
+This is also a project of the discipline Artificial Neural Network I. 
