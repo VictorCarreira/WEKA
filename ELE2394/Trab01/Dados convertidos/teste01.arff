@@ -1,17 +1,17 @@
 @relation teste01.arff
 
-@attribute ESTC numeric
-@attribute NDEP numeric
+@attribute ESTC {0,1,2,3}
+@attribute NDEP {0,1,2,3,4,5,6,7}
 @attribute RENDA numeric
-@attribute TIPOR numeric
+@attribute TIPOR {0,1}
 @attribute VBEM numeric
 @attribute NPARC numeric
 @attribute VPARC numeric
-@attribute TEL numeric
+@attribute TEL {0,1}
 @attribute IDADE numeric
 @attribute RESMS numeric
 @attribute ENTRADA numeric
-@attribute CLASSE numeric
+@attribute CLASSE {0,1}
 @data
 0,2,500,1,618,10,85,0,36,6,0,0
 1,0,813,0,552,4,119,0,43,48,119,1

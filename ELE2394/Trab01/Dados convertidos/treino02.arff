@@ -1,17 +1,17 @@
 @relation treino02.arff
 
-@attribute ESTC numeric
-@attribute NDEP numeric
+@attribute ESTC {0,1,2,3}
+@attribute NDEP {0,1,2,3,4,5,6,7}
 @attribute RENDA numeric
-@attribute TIPOR numeric
+@attribute TIPOR {0,1}
 @attribute VBEM numeric
 @attribute NPARC numeric
 @attribute VPARC numeric
-@attribute TEL numeric
+@attribute TEL {0,1}
 @attribute IDADE numeric
 @attribute RESMS numeric
 @attribute ENTRADA numeric
-@attribute CLASSE numeric
+@attribute CLASSE {0,1}
 @data
 1,0,610,0,725,10,110,0,34,0,0,1
 0,0,1978,0,485,6,102,0,59,48,0,0
