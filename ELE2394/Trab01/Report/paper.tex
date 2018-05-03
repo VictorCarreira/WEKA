@@ -7,6 +7,7 @@
 \usepackage{float}
 \usepackage{mathtools}
 \usepackage{natbib}
+%\usepackage{multicol, blindtext}
 
 %\usepackage{cite}      % Written by Donald Arseneau
                         % V1.6 and later of IEEEtran pre-defines the format
@@ -57,7 +58,7 @@
                         % and documentation can be obtained at:
                         % http://www.ctan.org/tex-archive/macros/latex/contrib/supported/psfrag/
 
-%\usepackage{subfigure} % Written by Steven Douglas Cochran
+\usepackage{subfigure} % Written by Steven Douglas Cochran
                         % This package makes it easy to put subfigures
                         % in your figures. i.e., "figure 1a and 1b"
                         % Docs are in "Using Imported Graphics in LaTeX2e"
@@ -74,7 +75,7 @@
                         % http://www.ctan.org/tex-archive/macros/latex/contrib/other/misc/
                         % Read the url.sty source comments for usage information.
 
-%\usepackage{stfloats}  % Written by Sigitas Tolusis
+\usepackage{stfloats}  % Written by Sigitas Tolusis
                         % Gives LaTeX2e the ability to do double column
                         % floats at the bottom of the page as well as the top.
                         % (e.g., "\begin{figure*}[!b]" is not normally
@@ -102,7 +103,7 @@
                         % package sets \interdisplaylinepenalty to 10000 thus
                         % preventing page breaks from occurring within multiline
                         % equations. Use:
-%\interdisplaylinepenalty=2500
+\interdisplaylinepenalty=2500
                         % after loading amsmath to restore such page breaks
                         % as IEEEtran.cls normally does. amsmath.sty is already
                         % installed on most LaTeX systems. The latest version
@@ -145,14 +146,17 @@
 
 % Write abstract here
 \begin{abstract}
-	Este relatório apresenta o resultado de sete testes conduzidos em uma rede neural artificial \textit{Perceptron multi-camadas} em um banco de dados de uma instituição financeira com o intuito de se fazer uma análise de crédito bancário.  A base de dados contém 2077 exemplos de créditos concedidos. Possui 11 atributos de entrada e 2 classes de saída. A saída da rede indica se o cliente pagou o empréstimo ou não. Os resultados dos testes estão apresentados em formato de tabela.
+	Este relatório apresenta o resultado de sete testes conduzidos em uma rede neural artificial \textit{Perceptron multi-camadas} em um banco de dados de uma instituição financeira com o intuito de se fazer uma análise de crédito bancário.  A base de dados contém 2077 exemplos de créditos concedidos. Possui 11 atributos de entrada e 2 classes de saída. A saída da rede indica se o cliente pagou o empréstimo ou não. Os resultados dos testes estão apresentados em formato de tabela. Os melhores resultados de classificação foram obtidos ao se realizar a união de atributos semelhantes dentro das classes NDEP e ESTC, associada com  a normalização e codificação binária dos atributos categóricos de entrada da rede atingindo um índice de classificação correta de $92\%$.  
 \end{abstract}
 
-% Each section begins with a \section{title} command
+
 \section{Introdução}
     As Redes Neurais Artificiais (RNA) são inspiradas em modelos sensoriais do processamento de tarefas realizadas pelo cérebro \citep{Hagan1996}. Uma RNA, portanto pode ser criada através da aplicação de algoritmos matemáticos que imitem a tarefa realizada por um neurônio \citep{Nedjah2016}. Uma rede neural artificial possui semelhanças com a rede biológica presente no sistema nervoso central, neste o cômputo de informações realizado do cérebro é feito através de uma vasta quantidade de neurônios interconectados \citep{Feldman1988,Poulton2002}. A comunicação entre essas células é realizada através de impulsos elétricos. Estes são transmitidos e recebidos por meio de sinapses nervosas entre axônios e dendritos. As sinapses são estruturas elementares e uma unidade funcional localizada entre dois neurônios \citep{Krogh2008}.
 
-	\citet{McCulloch1943} redigem o trabalho pioneiro onde foi modelado um neurônio cuja resposta dependia do \textit{input}\footnote{Valor de entrada} que provinha de outros neurônios e do peso utilizado.  Já \citet{Rosenblatt1962} cria a teoria de convergência do \textit{Perceptron} onde ele prova que modelos de neurônios possuem propriedades similares ao cérebro humano \citep{Kanal2001}. Neste sentido as rede neuronais artificiais podem realizar performasses sofisticadas no reconhecimento de padrões, mesmo se alguns neurônios forem destruídos \citep{Levy1997}. \citet{Minsky1969} demonstraram que \textit{Perceptrons} somente resolvem uma classe muito limitada de problemas que podem ser linearizados.
+	\citet{McCulloch1943} redigem o trabalho pioneiro onde foi modelado um neurônio cuja resposta dependia do \textit{input}\footnote{Valor de entrada} que provinha de outros neurônios e do peso utilizado.  Já \citet{Rosenblatt1962} cria a teoria de convergência do \textit{Perceptron} onde ele prova que modelos de neurônios possuem propriedades similares ao cérebro humano \citep{Kanal2001}. Neste sentido as rede neuronais artificiais podem realizar performasses sofisticadas no reconhecimento de padrões, mesmo se alguns neurônios forem destruídos \citep{Levy1997}. \citet{Minsky1969} demonstraram que um único  \textit{Perceptron} somente resolve uma classe muito limitada de problemas que podem ser linearizados.
+	
+	Neste relatório são apresentados os resultados do Trabalho 01 MLP de Classificação da disciplina ELE 2394, Redes Neurais I, da Engenharia elétrica.
+	
 
 % Main Part
 \section{Objetivo e Metodologia}
@@ -211,16 +215,16 @@ g(x)=1/(1+e^{-\beta x})
 
 Onde $\beta$ é o parâmetro de inclinação. A Fig. \ref{Esquematico de McCulloch} ilustra a sequência lógica da operação de uma RNA para um neurônio simples de McCulloch-Pitts. 
 \\
-\begin{figure}[H]
+\begin{figure*}[ht]
 	\centering
 	\setlength{\fboxsep}{8pt}
 	\setlength{\fboxrule}{0.1pt}
 	\fbox{
-		\includegraphics[scale=0.4]{Images/McCulloch.eps}
+		\includegraphics[scale=1]{Images/McCulloch.eps}
 	}
 	\caption{Modelo esquemático de um neurônio de McCulloch-Pitts. Onde $x_{1}, x_{2}, ..., x_{n}$ são os \textit{inputs}, $w_{1}, w_{2}, ..., w_{n}$ são os pesos, h é o treino, $g(x)$ é a função de ativação, e $y$ é o \textit{output}.}
 	\label{Esquematico de McCulloch}
-\end{figure}
+\end{figure*}
 
 As redes alimentadas diretamente são aquelas redes cujos grafos orientados se distinguem pela presença de um ou mais camadas ocultas e cujos nós são chamados de neurônios ocultos. A função do neurônio é intervir entre a camada externa e a saída da rede de maneira útil. Adicionando-se camadas ocultas a rede torna-se capaz de realizar estatísticas de ordem elevada \citep{Haykin1999}.
 
@@ -229,7 +233,7 @@ As redes alimentadas diretamente são aquelas redes cujos grafos orientados se d
 
 A tabela \ref{grupo01} refere-se ao conjunto de $6$ testes realizados no primeiro banco de dados que é uma composição dos dados de treinamento e testes $1$. Os testes utilizados neste trabalho foram em sua totalidade compostos por $2$ camadas ocultas. O número de neurônios ocultos estão indicados nas tabelas, como Neurônios na CO1 (camada oculta 1) e como Neurônios na CO2 (camada oculta 2).
 
-\begin{table}[H]
+\begin{table}[ht]
 	\begin{center}
 				\caption{Grupo $01$}
 				\label{grupo01}
@@ -237,20 +241,20 @@ A tabela \ref{grupo01} refere-se ao conjunto de $6$ testes realizados no primeir
 					\textbf{Configuração} &\textbf{I}&\textbf{II}&\textbf{III}&\textbf{IV}&\textbf{V}&\textbf{VI} \\ \hline 
 					{Neuronios na CO1} & 4 & 4 & 4 & - & 4 & 4 \\ \hline
 					{Neuronios na CO2} & 4 & 4 & 2 & - & 4 & 4 \\ \hline
-					{Cl. Correta (\%)} & 52.3 & 91.3 & 91.2  & - & 52.3 &  97 \\ \hline
-					{Cl. Incorreta (\%)} & 47.7 & 8.7 & 8.8 & - & 47.7 & 3 \\ \hline
-					{MAE (\%)} & 0.49 &  0.13 & 0.14 & - & 0.49 & 0.04 \\ \hline
-					{RMSE (\%)} & 0.50 & 0.26 & 0.27 & - & 0.49 & 0.17 \\ \hline
-					{RAE (\%)} & 99.68 & 26.23 & 28.3 & - & 100.2 & 8.50 \\ \hline
-					{RRSE(\%)} & 100.23 & 52.23 & 53.75 & - & 100.1 & 36.51 \\ \hline
-					{Dados Totais} & 1500 & 1500  & 1500 & - & 1500 & 100 \\ \hline
+					{Cl. Correta (\%)} & 52.3 & 91.3 & 91.2  & - & 52.3 &  92  \\ \hline
+					{Cl. Incorreta (\%)} & 47.7 & 8.7 & 8.8 & - & 47.7 & 8 \\ \hline
+					{MAE (\%)} & 0.49 &  0.13 & 0.14 & - & 0.49 & 0.1363 \\ \hline
+					{RMSE (\%)} & 0.50 & 0.26 & 0.27 & - & 0.49 & 0.2586 \\ \hline
+					{RAE (\%)} & 99.68 & 26.23 & 28.3 & - & 100.2 & 27.3239 \\ \hline
+					{RRSE(\%)} & 100.23 & 52.23 & 53.75 & - & 100.1 & 51.7764 \\ \hline
+					{Dados Totais} & 1500 & 1500  & 1500 & - & 1500 & 1500 \\ \hline
 				\end{tabular}  
 	\end{center}
 \end{table}
 
 A tabela \ref{grupo01IV} refere-se os testes de variações de épocas do conjunto de dados $1$.
 
-\begin{table}[H]
+\begin{table}[ht]
 	\begin{center}
 		\caption{Grupo $01$: variando as épocas no teste IV}
 		\label{grupo01IV}
@@ -269,9 +273,22 @@ A tabela \ref{grupo01IV} refere-se os testes de variações de épocas do conjun
 	\end{center}
 \end{table}
 
-Aqui iniciam-se o conjunto de testes 2. 
+A Fig. \ref{grafo} apresenta a topologia da rede quando se unem os atributos semelhantes. Neste caso, o número de entradas é reduzido. Na etapa VI, nos três grupos analisados, foram unidos por meio do filtro two merge values os atributos semelhantes das classes ESTC e NDEP. Nesta exercício a classe ESTC passa a ter somente duas categorias (casado ou solteiro). E a classe NDEP passa a ter duas classes (com filhos ou sem filhos). 
 
-\begin{table}[H]
+\begin{figure*}[ht]
+	\centering
+	\setlength{\fboxsep}{8pt}
+	\setlength{\fboxrule}{0.1pt}
+	\fbox{
+		\includegraphics[scale=0.65]{Images/grafo3.png}
+	}
+	\caption{Grafo orientado da rede após se aplicar o filtro merge two values nas nos atributos 1,2,3,4,5,6,7 da classe NDEP e no atributos 1,2,3 da classe ESTC.}
+	\label{grafo}
+\end{figure*}
+
+A tabela \ref{grupo02} apresenta o conjunto de testes para o grupo 2. 
+
+\begin{table}[ht]
 	\begin{center}
 		\caption{Grupo $02$}
 		\label{grupo02}
@@ -279,20 +296,20 @@ Aqui iniciam-se o conjunto de testes 2.
 			\textbf{Configuração} &\textbf{I}&\textbf{II}&\textbf{III}&\textbf{IV}&\textbf{V}&\textbf{VI} \\ \hline 
 			{Neuronios na CO1} & 4 & 4 & 4 & - & 4 & 4 \\ \hline
 			{Neuronios na CO2} & 4 & 4 & 8 & - & 4 & 4 \\ \hline
-			{Cl. Correta (\%)} & 53.2667 & 91.4667 & 91.6667  & - & 53.2667 &  91.8667 \\ \hline
-			{Cl. Incorreta (\%)} & 46.7333 & 8.5333 & 8.3333 & - & 46.7333 & 8.1333 \\ \hline
-			{MAE (\%)} & 0.4927 &  0.1247 & 0.1213 & - & 0.4999 & 0.1165 \\ \hline
-			{RMSE (\%)} &0.5052 & 0.2637 & 0.2657 & - & 0.4999 & 0.2584 \\ \hline
-			{RAE (\%)} & 98.9582 & 25.0564 & 24.3633 & - & 100.4037 & 23.3909 \\ \hline
-			{RRSE(\%)} & 101.2566 & 52.8491 & 53.2471 & - & 100.1905 & 51.7846 \\ \hline
+			{Cl. Correta (\%)} & 53.30 & 91.47 & 91.67  & - & 53.27 &  91.27 \\ \hline
+			{Cl. Incorreta (\%)} & 46.7 & 8.53 & 8.33 & - & 46.73 & 8.73 \\ \hline
+			{MAE (\%)} & 0.49 &  0.12 & 0.12 & - & 0.5 & 0.13 \\ \hline
+			{RMSE (\%)} &0.50 & 0.26 & 0.26 & - & 0.5 & 0.27 \\ \hline
+			{RAE (\%)} & 98.96 & 25.05 & 24.36 & - & 100.4 & 24.66 \\ \hline
+			{RRSE(\%)} & 101.26 & 52.85 & 53.24 & - & 100.2 & 54.12 \\ \hline
 			{Dados Totais} & 1500 & 1500  & 1500 & - & 1500 & 1500 \\ \hline
 		\end{tabular}  
 	\end{center}
 \end{table}
 
-Variações das épocas do conjunto de testes 2. 
+Na tabela \ref{grupo02IV} são apresentados os subconjuntos de testes das épocas do grupo 2. 
 
-\begin{table}[H]
+\begin{table}[ht]
 	\begin{center}
 		\caption{Grupo $02$: variando as épocas no teste IV}
 		\label{grupo02IV}
@@ -311,9 +328,9 @@ Variações das épocas do conjunto de testes 2.
 	\end{center}
 \end{table}
 
-Aqui iniciam-se o conjunto de testes 3. 
+Na tabela \ref{grupo03} são apresentados os conjunto de testes para o grupo 3. 
 
-\begin{table}[H]
+\begin{table}[ht]
 	\begin{center}
 		\caption{Grupo $03$}
 		\label{grupo03}
@@ -321,20 +338,20 @@ Aqui iniciam-se o conjunto de testes 3.
 			\textbf{Configuração} &\textbf{I}&\textbf{II}&\textbf{III}&\textbf{IV}&\textbf{V}&\textbf{VI} \\ \hline 
 			{Neuronios na CO1} & 4 & 4 & 1 & - & 4 & 4 \\ \hline
 			{Neuronios na CO2} & 4 & 4 & 12 & - & 4 & 4 \\ \hline
-			{Cl. Correta (\%)} & 49  & 91.4  & 90.8667  & - & 51 &  66 \\ \hline
-			{Cl. Incorreta (\%)} & 51  & 8.6 & 9.1333 & - & 49 & 34 \\ \hline
-			{MAE (\%)} & 0.5006 &  0.1228 & 0.1638 & - & 0.5  &  0.4979 \\ \hline
-			{RMSE (\%)} & 0.5013 & 0.2654 & 0.2783 & - & 0.5 & 0.4979 \\ \hline
-			{RAE (\%)} & 100.151 & 24.5646 & 32.7792 & - & 100.0321 & 110.5297 \\ \hline
-			{RRSE(\%)} & 100.2846 & 53.0866 & 55.6619 & - & 100.0128 & 104.9763 \\ \hline
-			{Dados Totais} & 1500 & 1500  & 1500 & - & 1500 & 100 \\ \hline
+			{Cl. Correta (\%)} & 49  & 91.4  & 90.9  & - & 51 &  90 \\ \hline
+			{Cl. Incorreta (\%)} & 51  & 8.6 & 9.1 & - & 49 & 10 \\ \hline
+			{MAE (\%)} & 0.5 &  0.1 & 0.1 & - & 0.5  &  0.1399 \\ \hline
+			{RMSE (\%)} & 0.5 & 0.2 & 0.3 & - & 0.5 &  0.2738 \\ \hline
+			{RAE (\%)} & 100.1 & 24.5 & 32.7 & - & 100 & 27.986 \\ \hline
+			{RRSE(\%)} & 100.3 & 53.1 & 55.6 & - & 100 & 54.7797 \\ \hline
+			{Dados Totais} & 1500 & 1500  & 1500 & - & 1500 & 1500 \\ \hline
 		\end{tabular}  
 	\end{center}
 \end{table}
 
-Aqui seguem os testes de variação de épocas. 
+A tabela \ref{grupo03IV} mostra os testes de variação das épocas do grupo 3. 
 
-\begin{table}[H]
+\begin{table}[ht]
 	\begin{center}
 		\caption{Grupo $03$: variando as épocas no teste IV}
 		\label{grupo03IV}
@@ -354,11 +371,24 @@ Aqui seguem os testes de variação de épocas.
 \end{table}
 
 
-
+Os parâmetros do modelo que permaneceram inalterados foram a taxa de aprendizado com um valor de $0.3$, momentum $0.2$, limiar de validação $20$. 
 
 
 \section{Conclusões}
-	Ao analisar previamente os dados é possível que o número de dependentes NDEP é majoritariamente composto por uma pessoa
+	Ao analisar previamente os dados é possível que o número de dependentes NDEP é majoritariamente composto por uma pessoa. 
+	
+	Para agrupamento 1, tabela \ref{grupo01} ,a classificação correta, quando não se utiliza a normalização é insatisfatória com uma taxa de acerto de $52.3\%$, quase muito semelhante a classificação incorreta que foi de $47.7\%$. Assim como o erro médio absoluto apresenta $49\%$ e o erro médio quadrático $50\%$, ou seja o erro está na mesma escala das medidas corretas.  Esse desempenho se deve ao fato de que a rede não consegue identificar com clareza os atributos das classes que tem escalas de valores absolutos muito discrepantes. Esse tipo de comportamento é verificado para todos os grupos 1,2 e 3, no teste I.
+	
+	Ainda no agrupamento 1 teste II, ao se normalizar os dados sem codificação binária dos atributos categóricos nota-se uma melhora no desempenho da rede aonde a classificação correta atinge o valor de $91.3\%$ e a incorreta $8.7\%$. O erro quadrado médio e o erro absoluto atingem respectivamente as marcas de $0.26\%$ e $0.13\%$. Esta melhora no desempenho se deve ao fato da normalização trazer para o mesmo patamar de valores os atributos de entrada facilitando o processo de classificação. Este mesmo comportamento se verificou em ambos os grupos de teste.
+	
+	Na tabela \ref{grupo01}, variou-se o número de neurônios ocultos da primeira camada para a última camada de $4$ para $2$. Neste teste pouca diferença foi notada e os valores de erros e acertos permaneceram constantes. Na tabela \ref{grupo02}, ao invés de diminuir o número de neurônios na camada oculta da primeira para a segunda camadas, optou-se por aumentar o número de neurônios de $4$ para $8$. Neste segundo caso de estudo os valores permaneceram praticamente inalterados. Na tabela \ref{grupo03}, aumentou-se o número de neurônios ocultos de $4$ para $12$, na segunda camada e diminuiu-se o número de neurônios ocultos de $4$ para $1$ na primeira camada. Neste caso de estudo notou-se uma piora dos índices da rede. A classificação correta caiu para $90.9\%$ e a incorreta aumentou para $9.1\%$ e os erros aumentaram. Esse aumento do erro se deve ao fato de que o arranjo topológico escolhido aglutina em um único nó oculto todos os parâmetros da rede tornando-a um mais ineficiente. Esse comportamento não se verificou nos agrupamentos $1$ e $2$.
+	
+	No teste IV, tabela \ref{grupo01IV}, ao se variar o número de épocas notou-se melhora nos índices da rede, subindo, por exemplo, o número de acertos de $52.3\%$ para $91.53\%$. Esse comportamento se verificou para os grupos $2$ e $3$. Isso se deve ao fato de que na primeira iteração a rede ainda não aprendeu o suficiente do banco de dados ao ponto de realizar uma classificação eficiente. Contudo, a medida que se aumentam o número de épocas para $100$ nota-se um rápido aumento de desempenho da rede. O melhor desempenho verificou-se na época $1000$, aonde os índices de classificação correta e incorreta obtiveram os melhores resultados atingindo valores de $91.53\%$ e $8.47\%$. Neste ponto a rede está totalmente treinada o que leva a um aumento expressivo no número de acertos.
+	
+	Com normalização dos atributos de entrada e utilizando um conjunto de validação, nota-se uma piora nos índices da rede, o que é verificado em todos os grupos de treinamento. 
+	 
+	Os melhores resultados foram obtidos agrupando algumas categorias das variáveis ESTC e NDEP. Para isto, utilizou-se o filtro não supervisionado \textit{Merge Two Values}. A Fig. \ref{grafo}, ilustra que o número de atributos utilizados na rede é reduzido a medida que, por exemplo, pessoas solteiras, divorciadas e viúvas, podem ser consideradas dentro da mesma categoria, a de solteiro, para uma análise bancária. Bem como o atributo número de dependentes pode ser reduzido para um filho ou nenhum filho. Estas considerações fazem com que o desempenho da rede se torne melhor impactando no número de classificações corretas atingindo o seu melhor valor de $92\%$ de acerto na tabela \ref{grupo01}.
+	
 
 % Now we need a bibliography:
 
