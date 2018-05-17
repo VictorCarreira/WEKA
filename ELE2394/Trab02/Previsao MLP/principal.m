@@ -23,19 +23,19 @@ tic
     
 %% Parametros gerais
 
-microclima=7;  % opcoes 1-8
-codificacao=2;% opcoes 1=real, 2=4bits, 3=12bits
-janela=6; % 
+microclima=1;  % opcoes 1-8
+codificacao=3;% opcoes 1=real, 2=4bits, 3=12bits
+janela=18; % 
 Num=1; % Numero de redes a testar
 
 %% Parametros da rede
 
-Numproc=6; % Numero de processadores
-tipofunc='tansig'; % logsig tansig
+Numproc=25; % Numero de processadores
+tipofunc='logsig'; % logsig tansig
 funcsaida='purelin'; % purelin logsig
 algtrei='trainlm'; % trainlm traingd traingdm traingdx
 Nepoch=100; % Numero de epocas
-Numchkval=100; % Se Numchkval=Nepoch --> Sem (early stop); Se Numchkval<Nepoch --> Com (early stop)
+Numchkval=90; % Se Numchkval=Nepoch --> Sem (early stop); Se Numchkval<Nepoch --> Com (early stop)
 
 %% Selecao do microclima da base de dados
 

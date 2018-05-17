@@ -1,0 +1,866 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>principal</title><meta name="generator" content="MATLAB 9.3"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2018-05-10"><meta name="DC.source" content="principal.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h2>Contents</h2><div><ul><li><a href="#1">Arquivo principal para previsao de series temporais</a></li><li><a href="#2">Instru&ccedil;&otilde;es:</a></li><li><a href="#4">Parametros gerais</a></li><li><a href="#5">Parametros da rede</a></li><li><a href="#6">Selecao do microclima da base de dados</a></li><li><a href="#7">Normalizacao</a></li><li><a href="#8">Codificacao</a></li><li><a href="#9">Janela</a></li><li><a href="#10">Reorganizacao dos dados</a></li><li><a href="#11">Criacao e configuracao da rede</a></li><li><a href="#13">Treinamento da rede e selecao de pesos</a></li><li><a href="#14">Realizar a previsao do conjunto de validacao</a></li><li><a href="#15">Realizar a previsao conjunto de teste</a></li><li><a href="#16">Metricas</a></li><li><a href="#18">Escolher a melhor configuracao de pesos, para Realizar a previsao final</a></li><li><a href="#19">Realizar a previsao conjunto de validacao</a></li><li><a href="#20">Realizar a previsao conjunto de teste</a></li><li><a href="#21">Figuras</a></li></ul></div><h2 id="1">Arquivo principal para previsao de series temporais</h2><pre class="codeinput"><span class="comment">%%%% DEE, Pontificia Universidade Catolica do Rio de Janeiro</span>
+<span class="comment">%%%% chvn@ele.puc-rio.br</span>
+</pre><h2 id="2">Instru&ccedil;&otilde;es:</h2><pre class="codeinput"><span class="comment">% O presente c&oacute;digo &eacute; utilizado para realizar a previs&atilde;o multi-step de uma</span>
+<span class="comment">% serie temporal, os param&ecirc;tros que devem ser modificados est&atilde;o</span>
+<span class="comment">% especificados em Param&ecirc;tros Gerais e Param&ecirc;tros da Rede.</span>
+
+<span class="comment">% Devem ser realizados testes para um microclima qualquer dos 8 diponiveis</span>
+<span class="comment">% com diferentes configura&ccedil;&otilde;es de rede para obter o menor poss&iacute;vel valor de</span>
+<span class="comment">% MAPE_t_f.</span>
+
+<span class="comment">% Duvidas devem ser tiradas com o monitor Cesar Valencia no mail:</span>
+<span class="comment">% chvn@ele.puc-rio.br</span>
+</pre><pre class="codeinput">clear <span class="string">all</span>
+clc
+
+tic
+</pre><pre class="codeoutput">Warning: The file 'C:\Program
+Files\MATLAB\R2017b\toolbox\matlab\codetools\private\evalmxdom.m' could not be
+cleared because it contains MATLAB code that is currently executing. 
+Warning: The file
+'C:\Users\carreira\Documents\GitHub\WEKA\ELE2394\Trab02\Previsao
+MLP\principal.m' could not be cleared because it contains MATLAB code that is
+currently executing. 
+Warning: The file 'C:\Program
+Files\MATLAB\R2017b\toolbox\matlab\codetools\mdbpublish.m' could not be cleared
+because it contains MATLAB code that is currently executing. 
+Warning: The file 'C:\Program
+Files\MATLAB\R2017b\toolbox\matlab\codetools\publish.p' could not be cleared
+because it contains MATLAB code that is currently executing. 
+Warning: The file 'C:\Program
+Files\MATLAB\R2017b\toolbox\matlab\codetools\private\evalmxdom.m' could not be
+cleared because it contains MATLAB code that is currently executing. 
+Warning: The file
+'C:\Users\carreira\Documents\GitHub\WEKA\ELE2394\Trab02\Previsao
+MLP\principal.m' could not be cleared because it contains MATLAB code that is
+currently executing. 
+Warning: The file 'C:\Program
+Files\MATLAB\R2017b\toolbox\matlab\codetools\mdbpublish.m' could not be cleared
+because it contains MATLAB code that is currently executing. 
+Warning: The file 'C:\Program
+Files\MATLAB\R2017b\toolbox\matlab\codetools\publish.p' could not be cleared
+because it contains MATLAB code that is currently executing. 
+Warning: The file 'C:\Program
+Files\MATLAB\R2017b\toolbox\matlab\codetools\private\evalmxdom.m' could not be
+cleared because it contains MATLAB code that is currently executing. 
+Warning: The file
+'C:\Users\carreira\Documents\GitHub\WEKA\ELE2394\Trab02\Previsao
+MLP\principal.m' could not be cleared because it contains MATLAB code that is
+currently executing. 
+Warning: The file 'C:\Program
+Files\MATLAB\R2017b\toolbox\matlab\codetools\mdbpublish.m' could not be cleared
+because it contains MATLAB code that is currently executing. 
+Warning: The file 'C:\Program
+Files\MATLAB\R2017b\toolbox\matlab\codetools\publish.p' could not be cleared
+because it contains MATLAB code that is currently executing. 
+</pre><h2 id="4">Parametros gerais</h2><pre class="codeinput">microclima=1;  <span class="comment">% opcoes 1-8</span>
+codificacao=3;<span class="comment">% opcoes 1=real, 2=4bits, 3=12bits</span>
+janela=18; <span class="comment">%</span>
+Num=1; <span class="comment">% Numero de redes a testar</span>
+</pre><h2 id="5">Parametros da rede</h2><pre class="codeinput">Numproc=25; <span class="comment">% Numero de processadores</span>
+tipofunc=<span class="string">'logsig'</span>; <span class="comment">% logsig tansig</span>
+funcsaida=<span class="string">'purelin'</span>; <span class="comment">% purelin logsig</span>
+algtrei=<span class="string">'trainlm'</span>; <span class="comment">% trainlm traingd traingdm traingdx</span>
+Nepoch=100; <span class="comment">% Numero de epocas</span>
+Numchkval=90; <span class="comment">% Se Numchkval=Nepoch --&gt; Sem (early stop); Se Numchkval&lt;Nepoch --&gt; Com (early stop)</span>
+</pre><h2 id="6">Selecao do microclima da base de dados</h2><pre class="codeinput"><span class="keyword">if</span> microclima == 1;
+   load <span class="string">microclimab1.mat</span>
+<span class="keyword">elseif</span> microclima == 2;
+       load <span class="string">microclimab2.mat</span>
+<span class="keyword">elseif</span> microclima == 3;
+       load <span class="string">microclimab3.mat</span>
+<span class="keyword">elseif</span> microclima == 4;
+       load <span class="string">microclimab4.mat</span>
+<span class="keyword">elseif</span> microclima == 5;
+       load <span class="string">microclimab5.mat</span>
+<span class="keyword">elseif</span> microclima == 6;
+       load <span class="string">microclimab6.mat</span>
+<span class="keyword">elseif</span> microclima == 7;
+       load <span class="string">microclimab7.mat</span>
+<span class="keyword">else</span> microclima = 8;
+       load <span class="string">microclimab8.mat</span>
+<span class="keyword">end</span>
+</pre><h2 id="7">Normalizacao</h2><pre class="codeinput">dados_geral=[dados_treinamento(2,:) dados_validacao(2,:)];
+[dados_geral_N,val]=mapminmax(dados_geral,0,1); <span class="comment">% Normalizacao entre 0 e 1</span>
+
+dados_treinamento_M=dados_treinamento(1,:);
+dados_treinamento_ST_N=dados_geral_N(1,1:length(dados_treinamento));
+
+dados_validacao_M=dados_validacao(1,:);
+dados_validacao_ST_N=dados_geral_N(1,length(dados_treinamento)+1:end);
+</pre><h2 id="8">Codificacao</h2><pre class="codeinput"><span class="comment">% Codificacao real normalizada</span>
+<span class="keyword">if</span> codificacao == 1;
+    mes_cod_trei=dados_treinamento_M/12; <span class="comment">% codificacao dos meses do conjunto de treinamento</span>
+    mes_cod_val=dados_validacao_M/12;   <span class="comment">% codificacao dos meses do conjunto de validacao</span>
+<span class="keyword">end</span>
+
+<span class="comment">% Codificacao 4 bits</span>
+<span class="keyword">if</span> codificacao == 2;
+    binm=dec2bin(dados_treinamento_M); <span class="comment">% treinamento</span>
+    binm=binm';
+    binm1=binm(1,:);
+    binm2=binm(2,:);
+    binm3=binm(3,:);
+    binm4=binm(4,:);
+    <span class="keyword">for</span> conta=1:max(size(dados_treinamento_M));
+        binmn(1,conta)=str2num(binm1(conta));
+        binmn(2,conta)=str2num(binm2(conta));
+        binmn(3,conta)=str2num(binm3(conta));
+        binmn(4,conta)=str2num(binm4(conta));
+    <span class="keyword">end</span>
+
+    binmv=dec2bin(dados_validacao_M); <span class="comment">% validacao</span>
+    binmv=binmv';
+    binmv1=binmv(1,:);
+    binmv2=binmv(2,:);
+    binmv3=binmv(3,:);
+    binmv4=binmv(4,:);
+    <span class="keyword">for</span> conta=1:max(size(dados_validacao_M));
+        binmnv(1,conta)=str2num(binmv1(conta));
+        binmnv(2,conta)=str2num(binmv2(conta));
+        binmnv(3,conta)=str2num(binmv3(conta));
+        binmnv(4,conta)=str2num(binmv4(conta));
+    <span class="keyword">end</span>
+
+    mes_cod_trei=binmn; <span class="comment">% codificacao dos meses do conjunto de treinamento</span>
+    mes_cod_val=binmnv; <span class="comment">% codificacao dos meses do conjunto de validacao</span>
+<span class="keyword">end</span>
+
+<span class="comment">% Codificacao 12 bits</span>
+<span class="keyword">if</span> codificacao == 3;
+    mes_cod_trei=eye(12);
+    mes_cod_val=eye(12);
+
+    <span class="keyword">for</span> j = 1:max(size(dados_treinamento_M))
+        mes_cod_trei(:,j)=mes_cod_trei(:,dados_treinamento_M(j))'; <span class="comment">% codificacao dos meses do conjunto de treinamento</span>
+    <span class="keyword">end</span>
+
+    <span class="keyword">for</span> j = 1:max(size(dados_validacao_M))
+        mes_cod_val(:,j)=mes_cod_val(:,dados_validacao_M(j))'; <span class="comment">% codificacao dos meses do conjunto de validacao</span>
+    <span class="keyword">end</span>
+<span class="keyword">end</span>
+</pre><h2 id="9">Janela</h2><pre class="codeinput"><span class="comment">%Janela treinamento</span>
+len = length(dados_treinamento_ST_N);
+num_subset = len - janela;
+
+<span class="keyword">for</span> i = (1:num_subset),
+        T_data_P(i,:) = dados_treinamento_ST_N(i:janela-1+i); <span class="comment">% Conjunto de padroes de treinamento</span>
+        T_data_T(i,:) = dados_treinamento_ST_N(:,janela+i); <span class="comment">% Conjunto de targets de treinamento</span>
+<span class="keyword">end</span>
+
+<span class="comment">%Janela validacao</span>
+dados_validacao_ST_N=[dados_treinamento_ST_N((length(dados_treinamento)+1)-janela:length(dados_treinamento)) dados_validacao_ST_N];
+len = length(dados_validacao_ST_N);
+num_subset = len - janela;
+
+<span class="keyword">for</span> i = (1:num_subset),
+        V_data_P(i,:) = dados_validacao_ST_N(i:janela-1+i); <span class="comment">% Conjunto de padroes de validacao</span>
+        V_data_T(i,:) = dados_validacao_ST_N(:,janela+i); <span class="comment">% Conjunto de targets de validacao</span>
+<span class="keyword">end</span>
+</pre><h2 id="10">Reorganizacao dos dados</h2><pre class="codeinput"><span class="comment">% Organizacao dados treinamento</span>
+T_data_P=T_data_P';
+T_data_P=[T_data_P;mes_cod_trei(:,janela+1:end)]; <span class="comment">% Padroes de treinamento</span>
+T_data_T=T_data_T';
+
+<span class="comment">% Organizacao dados validacao</span>
+V_data_P=V_data_P';
+V_data_P=[V_data_P;mes_cod_val]; <span class="comment">% Padroes de validacao</span>
+V_data_T=V_data_T';
+
+<span class="comment">% Agrupando padroes e targets com para treinamento e validacao</span>
+To_data_P=[T_data_P V_data_P]; <span class="comment">% Conjunto de padroes de treinamento e validacao</span>
+To_data_T=[T_data_T V_data_T]; <span class="comment">% Conjunto de targets de treinamento e validacao</span>
+</pre><h2 id="11">Criacao e configuracao da rede</h2><pre class="codeinput"><span class="comment">%T=waitbar(0,'Criando, treinando e Avaliando....');</span>
+<span class="keyword">for</span> NumRN=1:Num; <span class="comment">% Numero de redes a testar</span>
+</pre><pre class="codeinput">RN_C=newff(To_data_P,To_data_T,[Numproc],{tipofunc,funcsaida},algtrei); <span class="comment">% Criacao da rede</span>
+RN_C.trainParam.epochs = 1;<span class="comment">% Definindo numero de epocas</span>
+
+RN_C.initFcn=(<span class="string">'initlay'</span>); <span class="comment">% Inicializacao de pesos 'initlay' 'initnw' 'initwb'</span>
+
+RN_C.divideFcn=(<span class="string">'divideind'</span>); <span class="comment">% Funcao para divisao de subconjuntos de treinamento e validacao</span>
+RN_C.divideParam.trainInd=1:length(dados_treinamento)-janela; <span class="comment">% Subconjunto de treinamento</span>
+<span class="comment">% wb_i=getwb(RN_C); % Versoes de Matlab 2011b para frente</span>
+<span class="comment">% RN_C=setwb(RN_C,wb_i/10); % Versoes de Matlab 2011b para frente</span>
+</pre><h2 id="13">Treinamento da rede e selecao de pesos</h2><pre class="codeinput">RN_C.trainParam.showWindow=0; <span class="comment">% Visualizacao nntraintool 0=desalitado 1=habilitado</span>
+RN_T=train(RN_C,To_data_P,To_data_T); <span class="comment">% Treinamento utilizando a CPU</span>
+<span class="comment">%wb_t(:,1) = getwb(RN_T); % Versoes de Matlab 2011b para frente</span>
+I_W_v(:,1)=RN_T.IW(1,1); <span class="comment">% Pesos das conexoes de entrada</span>
+L_W_v(:,1)=RN_T.LW(2,1); <span class="comment">% Pesos das conexoes de saida</span>
+B_v(:,1)=[RN_T.b(1,1);RN_T.b(2,1)]; <span class="comment">% Bias</span>
+</pre><h2 id="14">Realizar a previsao do conjunto de validacao</h2><pre class="codeinput">chkval=0; <span class="comment">% Valor inicial do contador utilizado para os erros consecutivos</span>
+<span class="keyword">for</span> epocas=2:Nepoch;
+
+    <span class="comment">% 1 Mes previsao conjunto de validacao</span>
+    index=length(dados_geral_N)-12-janela;
+
+    <span class="keyword">for</span> i=1:janela;
+        vetor_v(1,i)=dados_geral_N(1,index+i);
+    <span class="keyword">end</span>
+
+    vetor1_v(1,:) = vetor_v(1:janela);
+    vetor1_v=vetor1_v';
+
+    Pr_data_P_N(:,1)=[vetor1_v(:,1);mes_cod_val(:,1)];
+    prev1_N_v(1)=sim(RN_T,Pr_data_P_N(:,1));
+    prev1_v(1)=mapminmax(<span class="string">'reverse'</span>,prev1_N_v(1),val); <span class="comment">% Valor 1 mes de validacao previsto desnormalizado</span>
+    <span class="comment">%prev1_v(1)=mapminmax.reverse(prev1_N_v(1),val); % Versoes de Matlab 2011b para frente</span>
+
+    <span class="comment">%2 - 12 Mes previsao conjunto de validacao</span>
+    <span class="keyword">for</span> i=1:11;
+        vetor_v(1,janela+i)=prev1_N_v(i);
+        vetor1_v(:,i+1) = vetor_v(1,i+1:janela+i);
+
+        Pr_data_P_N(:,1)=[vetor1_v(:,i+1);mes_cod_val(:,i+1)];
+        prev1_N_v(i+1)=sim(RN_T,Pr_data_P_N(:,1));
+        prev1_v(i+1)=mapminmax(<span class="string">'reverse'</span>,prev1_N_v(i+1),val); <span class="comment">% Valores 2-12 de validacao previstos desnormalizados</span>
+        <span class="comment">%prev1_v(i+1)=mapminmax.reverse(prev1_N_v(i+1),val); % Versoes de Matlab 2011b para frente</span>
+    <span class="keyword">end</span>
+
+    dados_validacao_real_ST=dados_geral(1,121:end); <span class="comment">% Valores reais do conjunto de validacao</span>
+    MAPE_v(epocas-1)=100*mean(abs((dados_validacao_real_ST-prev1_v)./dados_validacao_real_ST));
+    MAPEmin_v=min(MAPE_v(1,:));
+    [x_v] = find(MAPE_v(1,:)==MAPEmin_v);
+
+clear <span class="string">vetor1_v</span>
+
+<span class="keyword">if</span> MAPE_v(epocas-1) &lt;= MAPEmin_v <span class="comment">% Comparacao do menor MAPE</span>
+   chkval=0;
+<span class="keyword">else</span>
+    chkval=chkval+1;
+<span class="keyword">end</span>
+
+<span class="keyword">if</span> chkval == Numchkval; <span class="comment">% Numero de chkval</span>
+    <span class="comment">%disp('Numero de chkval alcanzado')</span>
+    <span class="keyword">break</span>
+<span class="keyword">end</span>
+
+RN_T=train(RN_T,To_data_P,To_data_T); <span class="comment">% Treinamento utilizando a CPU</span>
+<span class="comment">%RN_T=train(RN_C,To_data_P,To_data_T,'useGPU','yes'); % Treinamento utilizando a GPU</span>
+<span class="comment">%wb_t(:,epocas) = getwb(RN_T); % Versoes de Matlab 2011b para frente</span>
+I_W_v(:,epocas)=RN_T.IW(1,1); <span class="comment">% Pesos das conexoes de entrada</span>
+L_W_v(:,epocas)=RN_T.LW(2,1); <span class="comment">% Pesos das conexoes de saida</span>
+B_v(:,epocas)=[RN_T.b(1,1);RN_T.b(2,1)]; <span class="comment">% Bias</span>
+
+<span class="keyword">end</span>
+
+<span class="comment">%RN_T = setwb(RN_T,wb_t(:,x_v)); % Versoes de Matlab 2011b para frente</span>
+RN_T.IW=[I_W_v(1,x_v(1)); RN_T.IW(2,1)]; <span class="comment">% Set dos pesos das conexoes de entrada</span>
+RN_T.LW=[RN_T.LW(1,1) RN_T.LW(1,2);L_W_v(1,x_v(1)) RN_T.LW(2,2)]; <span class="comment">% Set dos pesos das conexoes de saida</span>
+RN_T.b=B_v(:,x_v(1)); <span class="comment">% Set dos Bias</span>
+I_W_t(:,NumRN)=RN_T.IW(1,1); <span class="comment">% Pesos das conexoes de entrada</span>
+L_W_t(:,NumRN)=RN_T.LW(2,1); <span class="comment">% Pesos das conexoes de saida</span>
+B_t(:,NumRN)=[RN_T.b(1,1);RN_T.b(2,1)]; <span class="comment">% Bias</span>
+<span class="comment">%wb_v(:,NumRN)=getwb(RN_T); % Versoes de Matlab 2011b para frente</span>
+</pre><h2 id="15">Realizar a previsao conjunto de teste</h2><pre class="codeinput"><span class="comment">% 1 Mes</span>
+index=length(dados_geral_N)-janela;
+
+<span class="keyword">for</span> i=1:janela;
+    vetor(1,i)=dados_geral_N(1,index+i);
+<span class="keyword">end</span>
+
+vetor1(1,:) = vetor(1:janela);
+vetor1=vetor1';
+
+Pr_data_P_N(:,1)=[vetor1(:,1);mes_cod_val(:,1)];
+prev1_N(1)=sim(RN_T,Pr_data_P_N(:,1));
+prev1(1)=mapminmax(<span class="string">'reverse'</span>,prev1_N(1),val); <span class="comment">% Valor 1 mes de teste previsto desnormalizado</span>
+<span class="comment">%prev1(1)=mapminmax.reverse(prev1_N(1),val); % Versoes de Matlab 2011b para frente</span>
+
+<span class="comment">%2 - 12 Mes</span>
+<span class="keyword">for</span> i=1:11;
+    vetor(1,janela+i)=prev1_N(i);
+    vetor1(:,i+1) = vetor(1,i+1:janela+i);
+
+    Pr_data_P_N(:,1)=[vetor1(:,i+1);mes_cod_val(:,i+1)];
+    prev1_N(i+1)=sim(RN_T,Pr_data_P_N(:,1));
+    prev1(i+1)=mapminmax(<span class="string">'reverse'</span>,prev1_N(i+1),val); <span class="comment">% Valores 2-12 de teste previstos desnormalizados</span>
+    <span class="comment">%prev1(i+1)=mapminmax.reverse(prev1_N(i+1),val); % Versoes de Matlab 2011b para frente</span>
+<span class="keyword">end</span>
+</pre><h2 id="16">Metricas</h2><pre class="codeinput">dados_teste_real_ST=dados_teste_real(2,:); <span class="comment">% Valores reais do conjuntod de teste</span>
+
+MAPE_t(NumRN)=100*mean(abs((dados_teste_real_ST-prev1)./dados_teste_real_ST)); <span class="comment">% MAPE para todas as redes testadas</span>
+RMSE_t(NumRN)=sqrt(sum((dados_teste_real_ST(:)-prev1(:)).^2)/numel(dados_teste_real_ST)); <span class="comment">% RMSE para todas as redes testadas</span>
+
+total(1,NumRN)=MAPE_t(NumRN); <span class="comment">% MAPE para todos os testes</span>
+total(2,NumRN)=RMSE_t(NumRN); <span class="comment">% RMSE para todos os testes</span>
+
+NumRN
+
+clear <span class="string">T_data_P</span> <span class="string">V_data_P</span> <span class="string">T_data_T</span> <span class="string">V_data_T</span> <span class="string">vetor</span> <span class="string">vetor1</span> <span class="string">prev1</span>
+
+<span class="comment">% waitbar(NumRN/Num)</span>
+</pre><pre class="codeoutput">
+NumRN =
+
+     1
+
+</pre><pre class="codeinput">   <span class="keyword">end</span>
+  <span class="comment">%close(T)</span>
+</pre><h2 id="18">Escolher a melhor configuracao de pesos, para Realizar a previsao final</h2><pre class="codeinput">MAPEmin_t=min(total(1,:)); <span class="comment">% Minimo valor do MAPE para o teste</span>
+RMSEmin_t=min(total(2,:)); <span class="comment">% Minimo valor do RMSE para o teste</span>
+
+[x] = find(total(1,:)==MAPEmin_t); <span class="comment">% Posicao da melhor configuracao de MAPE para teste</span>
+[y] = find(total(2,:)==RMSEmin_t); <span class="comment">% Posicao da melhor configuracao de RMSE para teste</span>
+
+<span class="comment">%RN_T = setwb(RN_T,wb_v(:,x)); % Versoes de Matlab 2011b para frente</span>
+RN_T.IW=[I_W_t(1,x(1)); RN_T.IW(2,1)]; <span class="comment">% Set dos pesos das conexoes de entrada</span>
+RN_T.LW=[RN_T.LW(1,1) RN_T.LW(1,2);L_W_t(1,x(1)) RN_T.LW(2,2)]; <span class="comment">% Set dos pesos das conexoes de saida</span>
+RN_T.b=B_t(:,x(1)); <span class="comment">% Set dos Bias</span>
+</pre><h2 id="19">Realizar a previsao conjunto de validacao</h2><pre class="codeinput">clear <span class="string">vetor1_v</span>
+index=length(dados_geral_N)-12-janela;
+
+    <span class="keyword">for</span> i=1:janela;
+        vetor_v(1,i)=dados_geral_N(1,index+i);
+    <span class="keyword">end</span>
+
+    vetor1_v(1,:) = vetor_v(1:janela);
+    vetor1_v=vetor1_v';
+
+    Pr_data_P_N(:,1)=[vetor1_v(:,1);mes_cod_val(:,1)];
+    prev1_N_v(1)=sim(RN_T,Pr_data_P_N(:,1));
+    prev1_v(1)=mapminmax(<span class="string">'reverse'</span>,prev1_N_v(1),val); <span class="comment">% Valor 1 mes de validacao previsto desnormalizado</span>
+    <span class="comment">%prev1_v(1)=mapminmax.reverse(prev1_N_v(1),val); % Versoes de Matlab 2011b para frente</span>
+
+
+    <span class="comment">%2 - 12 Mes previsao conjunto de validacao</span>
+    <span class="keyword">for</span> i=1:11;
+        vetor_v(1,janela+i)=prev1_N_v(i);
+        vetor1_v(:,i+1) = vetor_v(1,i+1:janela+i);
+
+        Pr_data_P_N(:,1)=[vetor1_v(:,i+1);mes_cod_val(:,i+1)];
+        prev1_N_v(i+1)=sim(RN_T,Pr_data_P_N(:,1));
+        prev1_v(i+1)=mapminmax(<span class="string">'reverse'</span>,prev1_N_v(i+1),val); <span class="comment">% Valores 2-12 de validacao previstos desnormalizados</span>
+        <span class="comment">%prev1_v(i+1)=mapminmax.reverse(prev1_N_v(i+1),val); % Versoes de Matlab 2011b para frente</span>
+    <span class="keyword">end</span>
+
+dados_validacao_real_ST=dados_geral(1,121:end); <span class="comment">% Valores reais do conjunto de validacao</span>
+MAPE_v_f=100*mean(abs((dados_validacao_real_ST-prev1_v)./dados_validacao_real_ST))
+RMSE_v_f=sqrt(sum((dados_validacao_real_ST(:)-prev1_v(:)).^2)/numel(dados_validacao_real_ST)) <span class="comment">% RMSE</span>
+</pre><pre class="codeoutput">
+MAPE_v_f =
+
+    3.7172
+
+
+RMSE_v_f =
+
+    1.6652
+
+</pre><h2 id="20">Realizar a previsao conjunto de teste</h2><pre class="codeinput"><span class="comment">% 1 Mes</span>
+clear <span class="string">vetor1</span>
+index=length(dados_geral_N)-janela;
+
+<span class="keyword">for</span> i=1:janela;
+    vetor(1,i)=dados_geral_N(1,index+i);
+<span class="keyword">end</span>
+
+vetor1(1,:) = vetor(1:janela);
+vetor1=vetor1';
+
+Pr_data_P_N(:,1)=[vetor1(:,1);mes_cod_val(:,1)];
+prev1_N(1)=sim(RN_T,Pr_data_P_N(:,1));
+prev1(1)=mapminmax(<span class="string">'reverse'</span>,prev1_N(1),val); <span class="comment">% Valor 1 mes de teste previsto desnormalizado</span>
+<span class="comment">%prev1(1)=mapminmax.reverse(prev1_N(1),val); % Versoes de Matlab 2011b para frente</span>
+
+<span class="comment">%2 - 12 Mes</span>
+<span class="keyword">for</span> i=1:11;
+    vetor(1,janela+i)=prev1_N(i);
+    vetor1(:,i+1) = vetor(1,i+1:janela+i);
+
+    Pr_data_P_N(:,1)=[vetor1(:,i+1);mes_cod_val(:,i+1)];
+    prev1_N(i+1)=sim(RN_T,Pr_data_P_N(:,1));
+    prev1(i+1)=mapminmax(<span class="string">'reverse'</span>,prev1_N(i+1),val); <span class="comment">% Valores 2-12 de teste previstos desnormalizados</span>
+    <span class="comment">%prev1(i+1)=mapminmax.reverse(prev1_N(i+1),val); % Versoes de Matlab 2011b para frente</span>
+<span class="keyword">end</span>
+
+dados_teste_real_ST=dados_teste_real(2,:); <span class="comment">% Valores reais do conjunto de teste</span>
+MAPE_t_f=100*mean(abs((dados_teste_real_ST-prev1)./dados_teste_real_ST)) <span class="comment">% MAPE final de teste</span>
+RMSE_t_f=sqrt(sum((dados_teste_real_ST(:)-prev1(:)).^2)/numel(dados_teste_real_ST)) <span class="comment">% RMSE</span>
+</pre><pre class="codeoutput">
+MAPE_t_f =
+
+    6.2340
+
+
+RMSE_t_f =
+
+    2.7437
+
+</pre><h2 id="21">Figuras</h2><pre class="codeinput"><span class="comment">% Figuras dos conjuntos de treinamento, valida&ccedil;&atilde;o e teste</span>
+
+tabbedGUI(dados_treinamento(2,janela+1:end),mapminmax(<span class="string">'reverse'</span>,sim(RN_T,To_data_P(:,1:(length(dados_treinamento_M)-janela))),val),<span class="keyword">...</span>
+    dados_validacao(2,:),prev1_v,dados_teste_real_ST,prev1,dados_treinamento_M,janela)
+
+view(RN_T) <span class="comment">% Configuracao final da rede</span>
+
+toc
+</pre><pre class="codeoutput">Warning: File: C:\Users\carreira\Documents\GitHub\WEKA\ELE2394\Trab02\Previsao
+MLP\tabbedGUI.m Line: 2 Column: 5
+Unrecognized pragma "%# create tabbed GUI". 
+Warning: File: C:\Users\carreira\Documents\GitHub\WEKA\ELE2394\Trab02\Previsao
+MLP\tabbedGUI.m Line: 12 Column: 5
+Unrecognized pragma "%# populate tabs with UI components". 
+Elapsed time is 21.027150 seconds.
+</pre><img vspace="5" hspace="5" src="principal_01.png" alt=""> <p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2017b</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% Arquivo principal para previsao de series temporais
+%%%% DEE, Pontificia Universidade Catolica do Rio de Janeiro
+%%%% chvn@ele.puc-rio.br
+%% Instruções:
+
+% O presente código é utilizado para realizar a previsão multi-step de uma
+% serie temporal, os paramêtros que devem ser modificados estão
+% especificados em Paramêtros Gerais e Paramêtros da Rede.
+
+% Devem ser realizados testes para um microclima qualquer dos 8 diponiveis
+% com diferentes configurações de rede para obter o menor possível valor de
+% MAPE_t_f.
+
+% Duvidas devem ser tiradas com o monitor Cesar Valencia no mail:
+% chvn@ele.puc-rio.br 
+
+%%
+
+clear all
+clc
+
+tic
+    
+%% Parametros gerais
+
+microclima=1;  % opcoes 1-8
+codificacao=3;% opcoes 1=real, 2=4bits, 3=12bits
+janela=18; % 
+Num=1; % Numero de redes a testar
+
+%% Parametros da rede
+
+Numproc=25; % Numero de processadores
+tipofunc='logsig'; % logsig tansig
+funcsaida='purelin'; % purelin logsig
+algtrei='trainlm'; % trainlm traingd traingdm traingdx
+Nepoch=100; % Numero de epocas
+Numchkval=90; % Se Numchkval=Nepoch REPLACE_WITH_DASH_DASH> Sem (early stop); Se Numchkval<Nepoch REPLACE_WITH_DASH_DASH> Com (early stop)
+
+%% Selecao do microclima da base de dados
+
+if microclima == 1;
+   load microclimab1.mat
+elseif microclima == 2;
+       load microclimab2.mat
+elseif microclima == 3;
+       load microclimab3.mat
+elseif microclima == 4;
+       load microclimab4.mat
+elseif microclima == 5;
+       load microclimab5.mat
+elseif microclima == 6;
+       load microclimab6.mat
+elseif microclima == 7;
+       load microclimab7.mat
+else microclima = 8;
+       load microclimab8.mat
+end
+
+%% Normalizacao 
+
+dados_geral=[dados_treinamento(2,:) dados_validacao(2,:)];
+[dados_geral_N,val]=mapminmax(dados_geral,0,1); % Normalizacao entre 0 e 1
+
+dados_treinamento_M=dados_treinamento(1,:);
+dados_treinamento_ST_N=dados_geral_N(1,1:length(dados_treinamento));
+
+dados_validacao_M=dados_validacao(1,:);
+dados_validacao_ST_N=dados_geral_N(1,length(dados_treinamento)+1:end);
+
+%% Codificacao
+
+% Codificacao real normalizada 
+if codificacao == 1; 
+    mes_cod_trei=dados_treinamento_M/12; % codificacao dos meses do conjunto de treinamento
+    mes_cod_val=dados_validacao_M/12;   % codificacao dos meses do conjunto de validacao   
+end
+
+% Codificacao 4 bits
+if codificacao == 2;
+    binm=dec2bin(dados_treinamento_M); % treinamento
+    binm=binm';
+    binm1=binm(1,:);
+    binm2=binm(2,:);
+    binm3=binm(3,:);
+    binm4=binm(4,:);
+    for conta=1:max(size(dados_treinamento_M));
+        binmn(1,conta)=str2num(binm1(conta));
+        binmn(2,conta)=str2num(binm2(conta));
+        binmn(3,conta)=str2num(binm3(conta));
+        binmn(4,conta)=str2num(binm4(conta));        
+    end
+       
+    binmv=dec2bin(dados_validacao_M); % validacao
+    binmv=binmv';
+    binmv1=binmv(1,:);
+    binmv2=binmv(2,:);
+    binmv3=binmv(3,:);
+    binmv4=binmv(4,:);
+    for conta=1:max(size(dados_validacao_M));
+        binmnv(1,conta)=str2num(binmv1(conta));
+        binmnv(2,conta)=str2num(binmv2(conta));
+        binmnv(3,conta)=str2num(binmv3(conta));
+        binmnv(4,conta)=str2num(binmv4(conta));        
+    end
+    
+    mes_cod_trei=binmn; % codificacao dos meses do conjunto de treinamento
+    mes_cod_val=binmnv; % codificacao dos meses do conjunto de validacao
+end
+
+% Codificacao 12 bits
+if codificacao == 3;
+    mes_cod_trei=eye(12);
+    mes_cod_val=eye(12);
+    
+    for j = 1:max(size(dados_treinamento_M))
+        mes_cod_trei(:,j)=mes_cod_trei(:,dados_treinamento_M(j))'; % codificacao dos meses do conjunto de treinamento
+    end 
+    
+    for j = 1:max(size(dados_validacao_M))
+        mes_cod_val(:,j)=mes_cod_val(:,dados_validacao_M(j))'; % codificacao dos meses do conjunto de validacao
+    end
+end
+
+%% Janela
+
+%Janela treinamento
+len = length(dados_treinamento_ST_N);
+num_subset = len - janela; 
+
+for i = (1:num_subset),
+        T_data_P(i,:) = dados_treinamento_ST_N(i:janela-1+i); % Conjunto de padroes de treinamento
+        T_data_T(i,:) = dados_treinamento_ST_N(:,janela+i); % Conjunto de targets de treinamento
+end
+
+%Janela validacao
+dados_validacao_ST_N=[dados_treinamento_ST_N((length(dados_treinamento)+1)-janela:length(dados_treinamento)) dados_validacao_ST_N];
+len = length(dados_validacao_ST_N);
+num_subset = len - janela;
+
+for i = (1:num_subset),
+        V_data_P(i,:) = dados_validacao_ST_N(i:janela-1+i); % Conjunto de padroes de validacao
+        V_data_T(i,:) = dados_validacao_ST_N(:,janela+i); % Conjunto de targets de validacao
+end
+
+%% Reorganizacao dos dados
+
+% Organizacao dados treinamento
+T_data_P=T_data_P';
+T_data_P=[T_data_P;mes_cod_trei(:,janela+1:end)]; % Padroes de treinamento
+T_data_T=T_data_T';
+
+% Organizacao dados validacao
+V_data_P=V_data_P';
+V_data_P=[V_data_P;mes_cod_val]; % Padroes de validacao
+V_data_T=V_data_T';
+
+% Agrupando padroes e targets com para treinamento e validacao
+To_data_P=[T_data_P V_data_P]; % Conjunto de padroes de treinamento e validacao
+To_data_T=[T_data_T V_data_T]; % Conjunto de targets de treinamento e validacao
+
+%% Criacao e configuracao da rede
+
+%T=waitbar(0,'Criando, treinando e Avaliando....');
+for NumRN=1:Num; % Numero de redes a testar
+
+RN_C=newff(To_data_P,To_data_T,[Numproc],{tipofunc,funcsaida},algtrei); % Criacao da rede  
+RN_C.trainParam.epochs = 1;% Definindo numero de epocas
+
+RN_C.initFcn=('initlay'); % Inicializacao de pesos 'initlay' 'initnw' 'initwb'
+
+RN_C.divideFcn=('divideind'); % Funcao para divisao de subconjuntos de treinamento e validacao
+RN_C.divideParam.trainInd=1:length(dados_treinamento)-janela; % Subconjunto de treinamento
+% wb_i=getwb(RN_C); % Versoes de Matlab 2011b para frente
+% RN_C=setwb(RN_C,wb_i/10); % Versoes de Matlab 2011b para frente
+
+%% Treinamento da rede e selecao de pesos
+
+RN_C.trainParam.showWindow=0; % Visualizacao nntraintool 0=desalitado 1=habilitado
+RN_T=train(RN_C,To_data_P,To_data_T); % Treinamento utilizando a CPU
+%wb_t(:,1) = getwb(RN_T); % Versoes de Matlab 2011b para frente
+I_W_v(:,1)=RN_T.IW(1,1); % Pesos das conexoes de entrada
+L_W_v(:,1)=RN_T.LW(2,1); % Pesos das conexoes de saida
+B_v(:,1)=[RN_T.b(1,1);RN_T.b(2,1)]; % Bias
+
+%% Realizar a previsao do conjunto de validacao
+
+chkval=0; % Valor inicial do contador utilizado para os erros consecutivos 
+for epocas=2:Nepoch; 
+
+    % 1 Mes previsao conjunto de validacao
+    index=length(dados_geral_N)-12-janela;
+
+    for i=1:janela;
+        vetor_v(1,i)=dados_geral_N(1,index+i);
+    end
+
+    vetor1_v(1,:) = vetor_v(1:janela);
+    vetor1_v=vetor1_v';
+
+    Pr_data_P_N(:,1)=[vetor1_v(:,1);mes_cod_val(:,1)];
+    prev1_N_v(1)=sim(RN_T,Pr_data_P_N(:,1));
+    prev1_v(1)=mapminmax('reverse',prev1_N_v(1),val); % Valor 1 mes de validacao previsto desnormalizado
+    %prev1_v(1)=mapminmax.reverse(prev1_N_v(1),val); % Versoes de Matlab 2011b para frente
+
+    %2 - 12 Mes previsao conjunto de validacao
+    for i=1:11;
+        vetor_v(1,janela+i)=prev1_N_v(i);
+        vetor1_v(:,i+1) = vetor_v(1,i+1:janela+i);
+
+        Pr_data_P_N(:,1)=[vetor1_v(:,i+1);mes_cod_val(:,i+1)];
+        prev1_N_v(i+1)=sim(RN_T,Pr_data_P_N(:,1));
+        prev1_v(i+1)=mapminmax('reverse',prev1_N_v(i+1),val); % Valores 2-12 de validacao previstos desnormalizados
+        %prev1_v(i+1)=mapminmax.reverse(prev1_N_v(i+1),val); % Versoes de Matlab 2011b para frente
+    end
+       
+    dados_validacao_real_ST=dados_geral(1,121:end); % Valores reais do conjunto de validacao
+    MAPE_v(epocas-1)=100*mean(abs((dados_validacao_real_ST-prev1_v)./dados_validacao_real_ST));
+    MAPEmin_v=min(MAPE_v(1,:));
+    [x_v] = find(MAPE_v(1,:)==MAPEmin_v);
+
+clear vetor1_v
+  
+if MAPE_v(epocas-1) <= MAPEmin_v % Comparacao do menor MAPE
+   chkval=0;
+else
+    chkval=chkval+1;       
+end 
+    
+if chkval == Numchkval; % Numero de chkval
+    %disp('Numero de chkval alcanzado')
+    break
+end
+
+RN_T=train(RN_T,To_data_P,To_data_T); % Treinamento utilizando a CPU
+%RN_T=train(RN_C,To_data_P,To_data_T,'useGPU','yes'); % Treinamento utilizando a GPU
+%wb_t(:,epocas) = getwb(RN_T); % Versoes de Matlab 2011b para frente
+I_W_v(:,epocas)=RN_T.IW(1,1); % Pesos das conexoes de entrada
+L_W_v(:,epocas)=RN_T.LW(2,1); % Pesos das conexoes de saida
+B_v(:,epocas)=[RN_T.b(1,1);RN_T.b(2,1)]; % Bias
+
+end
+
+%RN_T = setwb(RN_T,wb_t(:,x_v)); % Versoes de Matlab 2011b para frente
+RN_T.IW=[I_W_v(1,x_v(1)); RN_T.IW(2,1)]; % Set dos pesos das conexoes de entrada 
+RN_T.LW=[RN_T.LW(1,1) RN_T.LW(1,2);L_W_v(1,x_v(1)) RN_T.LW(2,2)]; % Set dos pesos das conexoes de saida
+RN_T.b=B_v(:,x_v(1)); % Set dos Bias
+I_W_t(:,NumRN)=RN_T.IW(1,1); % Pesos das conexoes de entrada
+L_W_t(:,NumRN)=RN_T.LW(2,1); % Pesos das conexoes de saida
+B_t(:,NumRN)=[RN_T.b(1,1);RN_T.b(2,1)]; % Bias
+%wb_v(:,NumRN)=getwb(RN_T); % Versoes de Matlab 2011b para frente
+
+%% Realizar a previsao conjunto de teste
+
+% 1 Mes
+index=length(dados_geral_N)-janela;
+
+for i=1:janela;
+    vetor(1,i)=dados_geral_N(1,index+i);
+end
+
+vetor1(1,:) = vetor(1:janela);
+vetor1=vetor1';
+
+Pr_data_P_N(:,1)=[vetor1(:,1);mes_cod_val(:,1)];
+prev1_N(1)=sim(RN_T,Pr_data_P_N(:,1));
+prev1(1)=mapminmax('reverse',prev1_N(1),val); % Valor 1 mes de teste previsto desnormalizado
+%prev1(1)=mapminmax.reverse(prev1_N(1),val); % Versoes de Matlab 2011b para frente
+
+%2 - 12 Mes
+for i=1:11;
+    vetor(1,janela+i)=prev1_N(i);
+    vetor1(:,i+1) = vetor(1,i+1:janela+i);
+
+    Pr_data_P_N(:,1)=[vetor1(:,i+1);mes_cod_val(:,i+1)];
+    prev1_N(i+1)=sim(RN_T,Pr_data_P_N(:,1));
+    prev1(i+1)=mapminmax('reverse',prev1_N(i+1),val); % Valores 2-12 de teste previstos desnormalizados
+    %prev1(i+1)=mapminmax.reverse(prev1_N(i+1),val); % Versoes de Matlab 2011b para frente
+end
+
+%% Metricas
+
+dados_teste_real_ST=dados_teste_real(2,:); % Valores reais do conjuntod de teste
+
+MAPE_t(NumRN)=100*mean(abs((dados_teste_real_ST-prev1)./dados_teste_real_ST)); % MAPE para todas as redes testadas
+RMSE_t(NumRN)=sqrt(sum((dados_teste_real_ST(:)-prev1(:)).^2)/numel(dados_teste_real_ST)); % RMSE para todas as redes testadas
+
+total(1,NumRN)=MAPE_t(NumRN); % MAPE para todos os testes
+total(2,NumRN)=RMSE_t(NumRN); % RMSE para todos os testes
+
+NumRN
+
+clear T_data_P V_data_P T_data_T V_data_T vetor vetor1 prev1
+
+% waitbar(NumRN/Num)        
+   
+   end
+  %close(T)
+%% Escolher a melhor configuracao de pesos, para Realizar a previsao final
+
+MAPEmin_t=min(total(1,:)); % Minimo valor do MAPE para o teste
+RMSEmin_t=min(total(2,:)); % Minimo valor do RMSE para o teste
+
+[x] = find(total(1,:)==MAPEmin_t); % Posicao da melhor configuracao de MAPE para teste
+[y] = find(total(2,:)==RMSEmin_t); % Posicao da melhor configuracao de RMSE para teste
+
+%RN_T = setwb(RN_T,wb_v(:,x)); % Versoes de Matlab 2011b para frente
+RN_T.IW=[I_W_t(1,x(1)); RN_T.IW(2,1)]; % Set dos pesos das conexoes de entrada
+RN_T.LW=[RN_T.LW(1,1) RN_T.LW(1,2);L_W_t(1,x(1)) RN_T.LW(2,2)]; % Set dos pesos das conexoes de saida
+RN_T.b=B_t(:,x(1)); % Set dos Bias
+
+%% Realizar a previsao conjunto de validacao
+
+clear vetor1_v
+index=length(dados_geral_N)-12-janela;
+
+    for i=1:janela;
+        vetor_v(1,i)=dados_geral_N(1,index+i);
+    end
+
+    vetor1_v(1,:) = vetor_v(1:janela);
+    vetor1_v=vetor1_v';
+
+    Pr_data_P_N(:,1)=[vetor1_v(:,1);mes_cod_val(:,1)];
+    prev1_N_v(1)=sim(RN_T,Pr_data_P_N(:,1));
+    prev1_v(1)=mapminmax('reverse',prev1_N_v(1),val); % Valor 1 mes de validacao previsto desnormalizado
+    %prev1_v(1)=mapminmax.reverse(prev1_N_v(1),val); % Versoes de Matlab 2011b para frente 
+
+    
+    %2 - 12 Mes previsao conjunto de validacao
+    for i=1:11;
+        vetor_v(1,janela+i)=prev1_N_v(i);
+        vetor1_v(:,i+1) = vetor_v(1,i+1:janela+i);
+
+        Pr_data_P_N(:,1)=[vetor1_v(:,i+1);mes_cod_val(:,i+1)];
+        prev1_N_v(i+1)=sim(RN_T,Pr_data_P_N(:,1));
+        prev1_v(i+1)=mapminmax('reverse',prev1_N_v(i+1),val); % Valores 2-12 de validacao previstos desnormalizados
+        %prev1_v(i+1)=mapminmax.reverse(prev1_N_v(i+1),val); % Versoes de Matlab 2011b para frente
+    end
+
+dados_validacao_real_ST=dados_geral(1,121:end); % Valores reais do conjunto de validacao
+MAPE_v_f=100*mean(abs((dados_validacao_real_ST-prev1_v)./dados_validacao_real_ST))
+RMSE_v_f=sqrt(sum((dados_validacao_real_ST(:)-prev1_v(:)).^2)/numel(dados_validacao_real_ST)) % RMSE
+
+%% Realizar a previsao conjunto de teste
+
+% 1 Mes
+clear vetor1
+index=length(dados_geral_N)-janela;
+
+for i=1:janela;
+    vetor(1,i)=dados_geral_N(1,index+i);
+end
+
+vetor1(1,:) = vetor(1:janela);
+vetor1=vetor1';
+
+Pr_data_P_N(:,1)=[vetor1(:,1);mes_cod_val(:,1)];
+prev1_N(1)=sim(RN_T,Pr_data_P_N(:,1));
+prev1(1)=mapminmax('reverse',prev1_N(1),val); % Valor 1 mes de teste previsto desnormalizado
+%prev1(1)=mapminmax.reverse(prev1_N(1),val); % Versoes de Matlab 2011b para frente
+
+%2 - 12 Mes
+for i=1:11;
+    vetor(1,janela+i)=prev1_N(i);
+    vetor1(:,i+1) = vetor(1,i+1:janela+i);
+
+    Pr_data_P_N(:,1)=[vetor1(:,i+1);mes_cod_val(:,i+1)];
+    prev1_N(i+1)=sim(RN_T,Pr_data_P_N(:,1));
+    prev1(i+1)=mapminmax('reverse',prev1_N(i+1),val); % Valores 2-12 de teste previstos desnormalizados
+    %prev1(i+1)=mapminmax.reverse(prev1_N(i+1),val); % Versoes de Matlab 2011b para frente
+end
+
+dados_teste_real_ST=dados_teste_real(2,:); % Valores reais do conjunto de teste
+MAPE_t_f=100*mean(abs((dados_teste_real_ST-prev1)./dados_teste_real_ST)) % MAPE final de teste
+RMSE_t_f=sqrt(sum((dados_teste_real_ST(:)-prev1(:)).^2)/numel(dados_teste_real_ST)) % RMSE
+
+%% Figuras
+
+% Figuras dos conjuntos de treinamento, validação e teste
+
+tabbedGUI(dados_treinamento(2,janela+1:end),mapminmax('reverse',sim(RN_T,To_data_P(:,1:(length(dados_treinamento_M)-janela))),val),...
+    dados_validacao(2,:),prev1_v,dados_teste_real_ST,prev1,dados_treinamento_M,janela)
+
+view(RN_T) % Configuracao final da rede
+
+toc
+
+
+
+    
+##### SOURCE END #####
+--></body></html>
