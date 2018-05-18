@@ -3,32 +3,32 @@ Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: paper.aux
 The style file: apalike.bst
 Database file #1: references.bib
-I was expecting a `,' or a `}'---line 2140 of file references.bib
+I was expecting a `,' or a `}'---line 4279 of file references.bib
  :  
  :  year = {2005}
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-Repeated entry---line 3003 of file references.bib
+Repeated entry---line 6005 of file references.bib
  : @article{McCulloch1943
  :                       ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 3018 of file references.bib
+Repeated entry---line 6035 of file references.bib
  : @article{Rosenblatt1962
  :                        ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 3044 of file references.bib
+Repeated entry---line 6087 of file references.bib
  : @article{Feldman1988
  :                     ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 3092 of file references.bib
+Repeated entry---line 6183 of file references.bib
  : @article{Hagan1996
  :                   ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 3102 of file references.bib
+Repeated entry---line 6203 of file references.bib
  : @article{Mao1996
  :                 ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 3117 of file references.bib
+Repeated entry---line 6233 of file references.bib
  : @article{Levy1997
  :                  ,
 I'm skipping whatever remains of this entry
