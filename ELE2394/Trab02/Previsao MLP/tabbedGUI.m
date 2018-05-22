@@ -1,17 +1,10 @@
 function tabbedGUI(primer_a,primer_b,segun_a,segun_b,tercer_a,tercer_b,dados_treinamento_M,janela)
     %# create tabbed GUI
-    hFig = figure('Menubar','none');
-    s = warning('off', 'MATLAB:uitabgroup:OldVersion');
-    hTabGroup = uitabgroup('Parent',hFig);
-    warning(s);
-    hTabs(1) = uitab('Parent',hTabGroup, 'Title','Treinamento');
-    hTabs(2) = uitab('Parent',hTabGroup, 'Title','Validação');
-    hTabs(3) = uitab('Parent',hTabGroup, 'Title','Teste');
-    set(hTabGroup, 'SelectedTab',hTabs(1));
-
-    %# populate tabs with UI components
-
-    hAx = axes('Parent',hTabs(1));
+   
+    figure('Position',[1 1 1400 400],'Color',[1 1 1]);
+    
+    %
+    subplot(1,3,1)
     hLine = plot(primer_a, '--rs','LineWidth',2,...
                        'MarkerEdgeColor','k',...
                        'MarkerFaceColor','g',...
@@ -27,9 +20,10 @@ function tabbedGUI(primer_a,primer_b,segun_a,segun_b,tercer_a,tercer_b,dados_tre
     legend('Real','Resposta da Rede','Location','SouthWest');
     xlim([1 (length(dados_treinamento_M)-janela)]);
     grid
-    saveas(gcf,'Treinamento 1','jpg')
     
-    hAx = axes('Parent',hTabs(2));
+    
+    %
+    subplot(1,3,2)
     hLine = plot(segun_a,'--rs','LineWidth',2,...
                        'MarkerEdgeColor','k',...
                        'MarkerFaceColor','g',...
@@ -40,14 +34,14 @@ function tabbedGUI(primer_a,primer_b,segun_a,segun_b,tercer_a,tercer_b,dados_tre
                        'MarkerFaceColor','y',...
                        'MarkerSize',8);
     title('Conjunto de Validacao');
-    xlabel('Mes');
-    ylabel('Sensacao Termica');
+    xlabel('Mes');    
     legend('Real','Resposta da Rede','Location','SouthWest');
     xlim([1 12]);
     grid
-    saveas(gcf,'Validacao 1','jpg')
+   
     
-    hAx = axes('Parent',hTabs(3));
+    %
+    subplot(1,3,3)
     hLine = plot(tercer_a,'--rs','LineWidth',2,...
                        'MarkerEdgeColor','k',...
                        'MarkerFaceColor','g',...
@@ -57,11 +51,17 @@ function tabbedGUI(primer_a,primer_b,segun_a,segun_b,tercer_a,tercer_b,dados_tre
                        'MarkerEdgeColor','k',...
                        'MarkerFaceColor','y',...
                        'MarkerSize',8);
-    title('Conjunto de Teste');
-    xlabel('Mes');
-    ylabel('Sensacao Termica');
+    title('Conunto de Teste');
+    xlabel('Mes');    
     legend('Real','Previsto','Location','SouthWest');
     xlim([1 12]);
     grid
-    saveas(gcf,'Teste 1','jpg')
+    
+    AxesHandle=findobj(gcf,'Type','axes');
+    set(AxesHandle(3),'Position',[0.03,0.1,0.3,0.85]);
+    set(AxesHandle(2),'Position',[0.36,0.1,0.3,0.85]);
+    set(AxesHandle(1),'Position',[0.69,0.1,0.3,0.85]);
+    
+    saveas(gcf,'trn_val_tst','jpg')
 end
+

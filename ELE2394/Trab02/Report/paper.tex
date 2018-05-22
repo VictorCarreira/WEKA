@@ -58,7 +58,7 @@
                         % and documentation can be obtained at:
                         % http://www.ctan.org/tex-archive/macros/latex/contrib/supported/psfrag/
 
-\usepackage{subfigure} % Written by Steven Douglas Cochran
+\usepackage{subfig} % Written by Steven Douglas Cochran
                         % This package makes it easy to put subfigures
                         % in your figures. i.e., "figure 1a and 1b"
                         % Docs are in "Using Imported Graphics in LaTeX2e"
@@ -236,12 +236,12 @@ g(x)=1/(1+e^{-\beta x})
 
 Onde $\beta$ é o parâmetro de inclinação. A Fig. \ref{Esquematico de McCulloch} ilustra a sequência lógica da operação de uma RNA para um neurônio simples de McCulloch-Pitts. 
 \\
-\begin{figure*}[ht]
+\begin{figure*}[!ht]
 	\centering
 	\setlength{\fboxsep}{8pt}
 	\setlength{\fboxrule}{0.1pt}
 	\fbox{
-		\includegraphics[scale=1]{Images/McCulloch.eps}
+		\includegraphics[scale=0.8]{Images/McCulloch.eps}
 	}
 	\caption{Modelo esquemático de um neurônio de McCulloch-Pitts. Onde $x_{1}, x_{2}, ..., x_{n}$ são os \textit{inputs}, $w_{1}, w_{2}, ..., w_{n}$ são os pesos, h é o treino, $g(x)$ é a função de ativação, e $y$ é o \textit{output}.}
 	\label{Esquematico de McCulloch}
@@ -251,12 +251,171 @@ As redes alimentadas diretamente são aquelas redes cujos grafos orientados se d
 
 
 \section{Resultados}
+A região escolhida para a realização deste trabalho foi a $1$ localizada no centro do Rio de Janeiro. E o primeiro teste foi realizado uma mudança no tamanho da janela cuja primeira medida foi $6$ e a segunda medida do janelamento foi $12$.
 
 
+\begin{figure}[ht!]
+	\centering
+	\subfloat[Treino]{
+		\includegraphics[height=5cm]{Images/CtreinoTESTE1.eps}
+		\label{treinoT1}
+	}
+	\quad %espaco separador
+	\subfloat[Teste]{
+		\includegraphics[height=5cm]{Images/CtestTESTE1.eps}
+		\label{testeT1}
+	}
+	\quad %espaco separador
+    \subfloat[Validação]{
+	\includegraphics[height=5cm]{Images/CvalTESTE1.eps}
+	\label{validacaoT1}
+    }
+	\caption{Apresenta os teste realizados com o janelamento de $12$.}
+	\label{Teste1}
+\end{figure}
+
+\begin{figure}[ht!]
+	\centering
+	\subfloat[Treino]{
+		\includegraphics[height=5cm]{Images/CtreinoTESTE2.eps}
+		\label{treinoT2}
+	}
+	\quad %espaco separador
+	\subfloat[Teste]{
+		\includegraphics[height=5cm]{Images/CtestTESTE2.eps}
+		\label{testeT2}
+	}
+	\quad %espaco separador
+	\subfloat[Validação]{
+		\includegraphics[height=5cm]{Images/CvalTESTE2.eps}
+		\label{validacaoT2}
+	}
+	\caption{Apresenta os teste realizados com o janelamento de $12$.}
+	\label{Teste2}
+\end{figure}
+
+\begin{figure}[ht!]
+	\centering
+	\subfloat[Treino]{
+		\includegraphics[height=5cm]{Images/CtreinoTESTE1.eps}
+		\label{treinoT1}
+	}
+	\quad %espaco separador
+	\subfloat[Teste]{
+		\includegraphics[height=5cm]{Images/CtestTESTE1.eps}
+		\label{treinoT2}
+	}
+	\quad %espaco separador
+	\subfloat[Validação]{
+		\includegraphics[height=5cm]{Images/CvalTESTE1.eps}
+		\label{TreinoT3}
+	}
+	\caption{Apresenta os teste realizados com o janelamento de $12$.}
+	\label{Treino1}
+\end{figure}
+
+\begin{figure}[ht!]
+	\centering
+	\subfloat[Treino]{
+		\includegraphics[height=5cm]{Images/CtreinoTESTE1.eps}
+		\label{treinoT1}
+	}
+	\quad %espaco separador
+	\subfloat[Teste]{
+		\includegraphics[height=5cm]{Images/CtestTESTE1.eps}
+		\label{treinoT2}
+	}
+	\quad %espaco separador
+	\subfloat[Validação]{
+		\includegraphics[height=5cm]{Images/CvalTESTE1.eps}
+		\label{TreinoT3}
+	}
+	\caption{Apresenta os teste realizados com o janelamento de $12$.}
+	\label{Treino1}
+\end{figure}
+
+\begin{figure}[ht!]
+	\centering
+	\subfloat[Treino]{
+		\includegraphics[height=5cm]{Images/CtreinoTESTE1.eps}
+		\label{treinoT1}
+	}
+	\quad %espaco separador
+	\subfloat[Teste]{
+		\includegraphics[height=5cm]{Images/CtestTESTE1.eps}
+		\label{treinoT2}
+	}
+	\quad %espaco separador
+	\subfloat[Validação]{
+		\includegraphics[height=5cm]{Images/CvalTESTE1.eps}
+		\label{TreinoT3}
+	}
+	\caption{Apresenta os teste realizados com o janelamento de $12$.}
+	\label{Treino1}
+\end{figure}
+
+\begin{figure}[ht!]
+	\centering
+	\subfloat[Treino]{
+		\includegraphics[height=5cm]{Images/CtreinoTESTE1.eps}
+		\label{treinoT1}
+	}
+	\quad %espaco separador
+	\subfloat[Teste]{
+		\includegraphics[height=5cm]{Images/CtestTESTE1.eps}
+		\label{treinoT2}
+	}
+	\quad %espaco separador
+	\subfloat[Validação]{
+		\includegraphics[height=5cm]{Images/CvalTESTE1.eps}
+		\label{TreinoT3}
+	}
+	\caption{Apresenta os teste realizados com o janelamento de $12$.}
+	\label{Treino1}
+\end{figure}
+
+\begin{figure}[ht!]
+	\centering
+	\subfloat[Treino]{
+		\includegraphics[height=5cm]{Images/CtreinoTESTE1.eps}
+		\label{treinoT1}
+	}
+	\quad %espaco separador
+	\subfloat[Teste]{
+		\includegraphics[height=5cm]{Images/CtestTESTE1.eps}
+		\label{treinoT2}
+	}
+	\quad %espaco separador
+	\subfloat[Validação]{
+		\includegraphics[height=5cm]{Images/CvalTESTE1.eps}
+		\label{TreinoT3}
+	}
+	\caption{Apresenta os teste realizados com o janelamento de $12$.}
+	\label{Treino1}
+\end{figure}
+
+\begin{figure}[ht!]
+	\centering
+	\subfloat[Treino]{
+		\includegraphics[height=5cm]{Images/CtreinoTESTE1.eps}
+		\label{treinoT1}
+	}
+	\quad %espaco separador
+	\subfloat[Teste]{
+		\includegraphics[height=5cm]{Images/CtestTESTE1.eps}
+		\label{treinoT2}
+	}
+	\quad %espaco separador
+	\subfloat[Validação]{
+		\includegraphics[height=5cm]{Images/CvalTESTE1.eps}
+		\label{TreinoT3}
+	}
+	\caption{Apresenta os teste realizados com o janelamento de $12$.}
+	\label{Treino1}
+\end{figure}
 
 \section{Conclusões}
-	
-	
+
 
 % Now we need a bibliography:
 

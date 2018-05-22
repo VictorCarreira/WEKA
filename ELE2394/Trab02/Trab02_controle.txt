@@ -8,47 +8,53 @@ Parâmetros do teste
 
 
 
-I -       12		1(Real)	                 12 	        	trainlm	                tansig            purelin         não      3.9131/9.6733     1.6984/4.5358
+I -       12		1(Real)	                 13	        	trainlm	                tansig            purelin         não      4.2542/5.8434     1.6624/2.7465
 
 
 
 
-II
+II -      6             1(Real)	                 13 	        	trainlm	                tansig            purelin         não      4.7637/3.9691     2.0730/2.1397
 
 
 
 
-III
+III -     6             2(4bits)                 13 	        	trainlm	                tansig            purelin         não      3.3669/4.3468     1.5717/2.3305
 
 
 
 
-IV
+IV -      6             3(12bits)                13 	        	trainlm	                tansig            purelin         não      4.4237/5.2831     1.7508/3.0548
 
 
 
 
-V
+V -       6             3(12bits)                3 	        	trainlm	                tansig            purelin         não      3.3555/6.1024     1.4032/3.1737
 
 
 
 
-VI
+VI -      6             3(12bits)                23 	        	trainlm	                tansig            purelin         não      3.6180/4.5186     1.6659/2.2323
 
 
 
 
-VI
+VI -      6             3(12bits)                23 	        	trainlm	                logsig            purelin         não      3.4132/5.0634     1.5364/2.5437
 
 
 
 
-VIII
+
+VIII -    6             3(12bits)                23 	        	trainlm	                logsig            logsig          não      10.0192/10.9309    3.7165/4.0335
 
 
 
 
-IX
+IX -      6             3(12bits)                23 	        	trainlm	                logsig            logsig          sim       9.8988/10.1712    3.6942/3.9312
+
+
+
+
+X -       3             1(Real)                  13                     trainlm	                tansig            purelin         sim
 
 
 
