@@ -1,0 +1,57 @@
+14:01 22/05/2018
+
+O microclima escolhido foi o 1 (Centro do Rio). O número de redes a testar foi 1 para todos os testes. 
+
+Parâmetros do teste
+
+       Janela	  Codificação do mês	Topologia (processadores)  Treinamento (algoritmo)	Função		 F. saída	  ES   	    MAPE (v/t)	      RMSE (v/t)
+
+
+
+I -       12		1(Real)	                 12 	        	trainlm	                tansig            purelin         não      3.9131/9.6733     1.6984/4.5358
+
+
+
+
+II
+
+
+
+
+III
+
+
+
+
+IV
+
+
+
+
+V
+
+
+
+
+VI
+
+
+
+
+VI
+
+
+
+
+VIII
+
+
+
+
+IX
+
+
+
+
+No final devem ser salvos os gráficos de treinamento e teste para todos os testes das linhas, totalizando 18 gráficos. MAPE e RMSE apresentam respectivamente os valores dos conjuntos de validação (v) e treinamento da rede (t).
+

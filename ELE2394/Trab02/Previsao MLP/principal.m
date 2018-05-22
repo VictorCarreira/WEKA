@@ -23,14 +23,14 @@ tic
     
 %% Parametros gerais
 
-microclima=7;  % opcoes 1-8
-codificacao=2;% opcoes 1=real, 2=4bits, 3=12bits
-janela=6; % 
+microclima=1;  % opcoes 1-8
+codificacao=1;% opcoes 1=real, 2=4bits, 3=12bits
+janela=12; % 
 Num=1; % Numero de redes a testar
 
 %% Parametros da rede
 
-Numproc=6; % Numero de processadores
+Numproc=12; % Numero de processadores
 tipofunc='tansig'; % logsig tansig
 funcsaida='purelin'; % purelin logsig
 algtrei='trainlm'; % trainlm traingd traingdm traingdx

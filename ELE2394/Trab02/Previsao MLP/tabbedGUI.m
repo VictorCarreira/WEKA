@@ -27,6 +27,7 @@ function tabbedGUI(primer_a,primer_b,segun_a,segun_b,tercer_a,tercer_b,dados_tre
     legend('Real','Resposta da Rede','Location','SouthWest');
     xlim([1 (length(dados_treinamento_M)-janela)]);
     grid
+    saveas(gcf,'Treinamento 1','jpg')
     
     hAx = axes('Parent',hTabs(2));
     hLine = plot(segun_a,'--rs','LineWidth',2,...
@@ -44,6 +45,7 @@ function tabbedGUI(primer_a,primer_b,segun_a,segun_b,tercer_a,tercer_b,dados_tre
     legend('Real','Resposta da Rede','Location','SouthWest');
     xlim([1 12]);
     grid
+    saveas(gcf,'Validacao 1','jpg')
     
     hAx = axes('Parent',hTabs(3));
     hLine = plot(tercer_a,'--rs','LineWidth',2,...
@@ -55,10 +57,11 @@ function tabbedGUI(primer_a,primer_b,segun_a,segun_b,tercer_a,tercer_b,dados_tre
                        'MarkerEdgeColor','k',...
                        'MarkerFaceColor','y',...
                        'MarkerSize',8);
-    title('Conunto de Teste');
+    title('Conjunto de Teste');
     xlabel('Mes');
     ylabel('Sensacao Termica');
     legend('Real','Previsto','Location','SouthWest');
     xlim([1 12]);
     grid
+    saveas(gcf,'Teste 1','jpg')
 end
