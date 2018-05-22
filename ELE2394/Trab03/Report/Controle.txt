@@ -1,0 +1,5 @@
+17:48 22/05/2018
+
+Este arquivo é um controle dos testes realizados no Trab03, mapas auto-organizáveis de kohonen. 
+
+
