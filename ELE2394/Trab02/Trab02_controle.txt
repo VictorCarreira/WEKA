@@ -38,7 +38,7 @@ VI -      6             3(12bits)                23 	        	trainlm	          
 
 
 
-VI -      6             3(12bits)                23 	        	trainlm	                logsig            purelin         não      3.4132/5.0634     1.5364/2.5437
+VII -      6             3(12bits)                23 	        	trainlm	                logsig            purelin         não      3.4132/5.0634     1.5364/2.5437
 
 
 
