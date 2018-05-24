@@ -146,7 +146,7 @@
 
 % Write abstract here
 \begin{abstract}
-	Este relatório apresenta o resultado da previsão realizada por uma rede neural artificial \textit{Multi Layer Perceptron} do tipo \textit{Back Propagation} em um banco de dados da concessionária de energia elétrica, Light, com o intuito de se fazer a previsão mensal da sensação térmica das diversas regiões ou unidades geográficas que fazem parte da sua área de abrangência. 
+	Este relatório apresenta o resultado da previsão realizada por uma rede neural artificial \textit{Multi Layer Perceptron} do tipo \textit{Back Propagation} em um banco de dados da concessionária de energia elétrica, Light, com o intuito de se fazer a previsão mensal da sensação térmica das diversas regiões ou unidades geográficas que fazem parte da sua área de abrangência. A análise de $9$ experimentos realizados indicam que o melhor resultado da rede apresentou erros de MAPE de $3.3669$ para o conjunto de validação e $4.3468$ para o conjunto de treinamento. E valores de RMSE de $1.5717$ para o conjunto de validação e $2.3305$ para o conjunto de treinamento.
 \end{abstract}
 
 
@@ -154,6 +154,8 @@
     As Redes Neurais Artificiais (RNA) são inspiradas em modelos sensoriais do processamento de tarefas realizadas pelo cérebro \citep{Hagan1996}. Uma RNA, portanto pode ser criada através da aplicação de algoritmos matemáticos que imitem a tarefa realizada por um neurônio \citep{Nedjah2016}. Uma rede neural artificial possui semelhanças com a rede biológica presente no sistema nervoso central, neste o cômputo de informações realizado do cérebro é feito através de uma vasta quantidade de neurônios interconectados \citep{Feldman1988,Poulton2002}. A comunicação entre essas células é realizada através de impulsos elétricos. Estes são transmitidos e recebidos por meio de sinapses nervosas entre axônios e dendritos. As sinapses são estruturas elementares e uma unidade funcional localizada entre dois neurônios \citep{Krogh2008}.
 
 	\citet{McCulloch1943} redigem o trabalho pioneiro onde foi modelado um neurônio cuja resposta dependia do \textit{input}\footnote{Valor de entrada} que provinha de outros neurônios e do peso utilizado.  Já \citet{Rosenblatt1962} cria a teoria de convergência do \textit{Perceptron} onde ele prova que modelos de neurônios possuem propriedades similares ao cérebro humano \citep{Kanal2001}. Neste sentido as rede neuronais artificiais podem realizar performasses sofisticadas no reconhecimento de padrões, mesmo se alguns neurônios forem destruídos \citep{Levy1997}. \citet{Minsky1969} demonstraram que um único  \textit{Perceptron} somente resolve uma classe muito limitada de problemas que podem ser linearizados.
+	
+	A retropropagação é uma técnica específica para implementar a decida do gradiente no espaço de pesos para um rede de múltiplas camadas alimentada. A ideia básica é calcular as derivadas parciais de uma função aproximativa $F(\textbf{w},\textbf{x})$ realizada pela rede em relação a todos os elementos do vetor de ajuste de pesos $\textbf{w}$ para um dado valor de entrada $\textbf{x}$ \citep{Haykin1999}.
 	
 	Neste relatório são apresentados os resultados do Trabalho 02 MLP de Previsão de Séries Temporais da disciplina ELE 2394, Redes Neurais I, da Engenharia elétrica.
 	
@@ -234,188 +236,279 @@ g(x)=1/(1+e^{-\beta x})
 \label{f.sigmoide}
 \end{eqnarray}
 
-Onde $\beta$ é o parâmetro de inclinação. A Fig. \ref{Esquematico de McCulloch} ilustra a sequência lógica da operação de uma RNA para um neurônio simples de McCulloch-Pitts. 
+Onde $\beta$ é o parâmetro de inclinação. %A Fig. \ref{Esquematico de McCulloch} ilustra a sequência lógica da operação de uma RNA para um neurônio simples de McCulloch-Pitts. 
 \\
-\begin{figure*}[!ht]
-	\centering
-	\setlength{\fboxsep}{8pt}
-	\setlength{\fboxrule}{0.1pt}
-	\fbox{
-		\includegraphics[scale=0.8]{Images/McCulloch.eps}
-	}
-	\caption{Modelo esquemático de um neurônio de McCulloch-Pitts. Onde $x_{1}, x_{2}, ..., x_{n}$ são os \textit{inputs}, $w_{1}, w_{2}, ..., w_{n}$ são os pesos, h é o treino, $g(x)$ é a função de ativação, e $y$ é o \textit{output}.}
-	\label{Esquematico de McCulloch}
-\end{figure*}
+%\begin{figure*}[!ht]
+%	\centering
+%	\setlength{\fboxsep}{8pt}
+%	\setlength{\fboxrule}{0.1pt}
+%	\fbox{
+%		\includegraphics[scale=0.8]{Images/McCulloch.eps}
+%	}
+%	\caption{Modelo esquemático de um neurônio de McCulloch-Pitts. Onde $x_{1}, x_{2}, ..., x_{n}$ são os \textit{inputs}, $w_{1}, w_{2}, ..., w_{n}$ são os pesos, h é o treino, $g(x)$ é a função de ativação, e $y$ é o \textit{output}.}
+%	\label{Esquematico de McCulloch}
+%\end{figure*}
 
 As redes alimentadas diretamente são aquelas redes cujos grafos orientados se distinguem pela presença de um ou mais camadas ocultas e cujos nós são chamados de neurônios ocultos. A função do neurônio é intervir entre a camada externa e a saída da rede de maneira útil. Adicionando-se camadas ocultas a rede torna-se capaz de realizar estatísticas de ordem elevada \citep{Haykin1999}.
 
 
 \section{Resultados}
-A região escolhida para a realização deste trabalho foi a $1$ localizada no centro do Rio de Janeiro. E o primeiro teste foi realizado uma mudança no tamanho da janela cuja primeira medida foi $6$ e a segunda medida do janelamento foi $12$.
+A região escolhida para a realização deste trabalho foi a $1$ localizada no centro do Rio de Janeiro. E o número de redes a serem testadas permaneceu $1$ para todos os testes. Foram realizados um total de $10$ diferentes testes. 
 
+O janelamento utilizado no primeiro experimento foi de 12, com um codificação do mês real, uma topologia composta de 13 processadores, o algoritmo de treinamento "trainlm", com a função "tansig", e com uma função de saída linear, e sem a utilização do critério de parada antecipada. A Fig. \ref{topo1} apresenta à topologia da rede no primeiro experimento. 
 
-\begin{figure}[ht!]
+\begin{figure}[H]
 	\centering
-	\subfloat[Treino]{
-		\includegraphics[height=5cm]{Images/CtreinoTESTE1.eps}
-		\label{treinoT1}
+	\includegraphics[scale=0.5]{Images/topologia1.jpg}
+	\caption{Topologia da rede para o primeiro teste realizado.}
+	\label{topo1}
+\end{figure} 
+
+
+O conjunto de treinamento, validação e teste para o primeiro experimento é apresentado na Fig. \ref{teste1}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.15]{Images/Teste1.jpg}
+	\caption{Os gráficos apresentam da esquerda para a direita os conjuntos de treinamento, validação e teste da rede para o primeiro experimento. Em vermelho é registrado o dado real, enquanto em azul é apresentado o ajuste da rede. Aonde o eixo cartesiano horizontal representa os meses e o eixo vertical a sensação térmica.}
+	\label{teste1}
+\end{figure} 
+
+O presente teste apresentou os seguintes valores de erros. MAPE de $4.2542$ para o conjunto de validação e $5.8434$ para o conjunto de treinamento. E valores de RMSE de $1.6624$ para o conjunto de validação e $2.7465$ para o conjunto de treinamento. 
+
+O janelamento utilizado no segundo experimento foi de 6, com um codificação do mês real, uma topologia composta de 13 processadores, o algoritmo de treinamento "trainlm", com a função "tansig", e com uma função de saída linear, e sem a utilização do critério de parada antecipada. A Fig. \ref{topo2} apresenta à topologia da rede no segundo experimento. 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.5]{Images/topologia2.jpg}
+	\caption{Topologia da rede para o segundo teste realizado.}
+	\label{topo2}
+\end{figure} 
+
+
+O conjunto de treinamento, validação e teste para o segundo experimento é apresentado na Fig. \ref{teste2}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.15]{Images/Teste2.jpg}
+	\caption{Os gráficos apresentam da esquerda para a direita os conjuntos de treinamento, validação e teste da rede para o primeiro experimento. Em vermelho é registrado o dado real, enquanto em azul é apresentado o ajuste da rede. Aonde o eixo cartesiano horizontal representa os meses e o eixo vertical a sensação térmica.}
+	\label{teste2}
+\end{figure} 
+
+O presente teste apresentou os seguintes valores de erros. MAPE de $4.7637$ para o conjunto de validação e $3.9691$ para o conjunto de treinamento. E valores de RMSE de $2.0730$ para o conjunto de validação e $2.1397$ para o conjunto de treinamento. 
+
+O janelamento utilizado no terceiro experimento foi de 6, com um codificação do mês 4 bits, uma topologia composta de 13 processadores, o algoritmo de treinamento "trainlm", com a função "tansig", e com uma função de saída linear, e sem a utilização do critério de parada antecipada. A Fig. \ref{topo3} apresenta à topologia da rede no terceiro experimento. 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.5]{Images/topologia3.jpg}
+	\caption{Topologia da rede para o terceiro teste realizado.}
+	\label{topo3}
+\end{figure} 
+
+
+O conjunto de treinamento, validação e teste para o terceiro experimento é apresentado na Fig. \ref{teste3}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.15]{Images/Teste3.jpg}
+	\caption{Os gráficos apresentam da esquerda para a direita os conjuntos de treinamento, validação e teste da rede para o primeiro experimento. Em vermelho é registrado o dado real, enquanto em azul é apresentado o ajuste da rede. Aonde o eixo cartesiano horizontal representa os meses e o eixo vertical a sensação térmica.}
+	\label{teste3}
+\end{figure} 
+
+O presente teste apresentou os seguintes valores de erros. MAPE de $3.3669$ para o conjunto de validação e $4.3468$ para o conjunto de treinamento. E valores de RMSE de $1.5717$ para o conjunto de validação e $2.3305$ para o conjunto de treinamento. 
+
+O janelamento utilizado no quarto experimento foi de 6, com um codificação do mês 12 bits, uma topologia composta de 13 processadores, o algoritmo de treinamento "trainlm", com a função "tansig", e com uma função de saída linear, e sem a utilização do critério de parada antecipada. A Fig. \ref{topo4} apresenta à topologia da rede no quarto experimento. 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.5]{Images/topologia4.jpg}
+	\caption{Topologia da rede para o quarto teste realizado.}
+	\label{topo4}
+\end{figure} 
+
+
+O conjunto de treinamento, validação e teste para o quarto experimento é apresentado na Fig. \ref{teste3}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.15]{Images/Teste4.jpg}
+	\caption{Os gráficos apresentam da esquerda para a direita os conjuntos de treinamento, validação e teste da rede para o primeiro experimento. Em vermelho é registrado o dado real, enquanto em azul é apresentado o ajuste da rede. Aonde o eixo cartesiano horizontal representa os meses e o eixo vertical a sensação térmica.}
+	\label{teste4}
+\end{figure} 
+
+O presente teste apresentou os seguintes valores de erros. MAPE de $4.4237$ para o conjunto de validação e $5.2831$ para o conjunto de treinamento. E valores de RMSE de $1.7508$ para o conjunto de validação e $3.0548$ para o conjunto de treinamento. 
+
+O janelamento utilizado no quinto experimento foi de 6, com um codificação do mês 12 bits, uma topologia composta de $3$ processadores, o algoritmo de treinamento "trainlm", com a função "tansig", e com uma função de saída linear, e sem a utilização do critério de parada antecipada. A Fig. \ref{topo5} apresenta à topologia da rede no quinto experimento. 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.5]{Images/topologia5.jpg}
+	\caption{Topologia da rede para o quinto teste realizado.}
+	\label{topo5}
+\end{figure} 
+
+
+O conjunto de treinamento, validação e teste para o quinto experimento é apresentado na Fig. \ref{teste5}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.15]{Images/Teste5.jpg}
+	\caption{Os gráficos apresentam da esquerda para a direita os conjuntos de treinamento, validação e teste da rede para o primeiro experimento. Em vermelho é registrado o dado real, enquanto em azul é apresentado o ajuste da rede. Aonde o eixo cartesiano horizontal representa os meses e o eixo vertical a sensação térmica.}
+	\label{teste5}
+\end{figure} 
+
+O presente teste apresentou os seguintes valores de erros. MAPE de $3.3555$ para o conjunto de validação e $6.1024 $ para o conjunto de treinamento. E valores de RMSE de $1.4032$ para o conjunto de validação e $3.1737$ para o conjunto de treinamento. 
+
+O janelamento utilizado no sexto experimento foi de 6, com um codificação do mês 12 bits, uma topologia composta de $23$ processadores, o algoritmo de treinamento "trainlm", com a função "tansig", e com uma função de saída linear, e sem a utilização do critério de parada antecipada. A Fig. \ref{topo6} apresenta à topologia da rede no sexto experimento. 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.5]{Images/topologia6.jpg}
+	\caption{Topologia da rede para o sexto teste realizado.}
+	\label{topo6}
+\end{figure} 
+
+
+O conjunto de treinamento, validação e teste para o sexto experimento é apresentado na Fig. \ref{teste6}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.15]{Images/Teste6.jpg}
+	\caption{Os gráficos apresentam da esquerda para a direita os conjuntos de treinamento, validação e teste da rede para o primeiro experimento. Em vermelho é registrado o dado real, enquanto em azul é apresentado o ajuste da rede. Aonde o eixo cartesiano horizontal representa os meses e o eixo vertical a sensação térmica.}
+	\label{teste6}
+\end{figure} 
+
+O presente teste apresentou os seguintes valores de erros. MAPE de $3.6180$ para o conjunto de validação e $4.5186$ para o conjunto de treinamento. E valores de RMSE de $1.6659$ para o conjunto de validação e $2.2323$ para o conjunto de treinamento. 
+
+O janelamento utilizado no sétimo experimento foi de 6, com um codificação do mês 12 bits, uma topologia composta de $23$ processadores, o algoritmo de treinamento "trainlm", com a função "logsig", e com uma função de saída linear, e sem a utilização do critério de parada antecipada. A Fig. \ref{topo7} apresenta à topologia da rede no sétimo experimento. 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.5]{Images/topologia7.jpg}
+	\caption{Topologia da rede para o sétimo teste realizado.}
+	\label{topo7}
+\end{figure} 
+
+
+O conjunto de treinamento, validação e teste para o sétimo experimento é apresentado na Fig. \ref{teste7}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.15]{Images/Teste7.jpg}
+	\caption{Os gráficos apresentam da esquerda para a direita os conjuntos de treinamento, validação e teste da rede para o primeiro experimento. Em vermelho é registrado o dado real, enquanto em azul é apresentado o ajuste da rede. Aonde o eixo cartesiano horizontal representa os meses e o eixo vertical a sensação térmica.}
+	\label{teste7}
+\end{figure} 
+
+O presente teste apresentou os seguintes valores de erros. MAPE de $3.4132$ para o conjunto de validação e $5.0634$ para o conjunto de treinamento. E valores de RMSE de $1.5364$ para o conjunto de validação e $2.5437$ para o conjunto de treinamento.
+
+O janelamento utilizado no oitavo experimento foi de 6, com um codificação do mês 12 bits, uma topologia composta de $23$ processadores, o algoritmo de treinamento "trainlm", com a função "logsig", e com uma função de saída "logsig", e sem a utilização do critério de parada antecipada. A Fig. \ref{topo8} apresenta à topologia da rede no oitavo experimento. 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.5]{Images/topologia8.jpg}
+	\caption{Topologia da rede para o oitavo teste realizado.}
+	\label{topo8}
+\end{figure} 
+
+
+O conjunto de treinamento, validação e teste para o oitavo experimento é apresentado na Fig. \ref{teste8}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.15]{Images/Teste8.jpg}
+	\caption{Os gráficos apresentam da esquerda para a direita os conjuntos de treinamento, validação e teste da rede para o primeiro experimento. Em vermelho é registrado o dado real, enquanto em azul é apresentado o ajuste da rede. Aonde o eixo cartesiano horizontal representa os meses e o eixo vertical a sensação térmica.}
+	\label{teste8}
+\end{figure} 
+
+O presente teste apresentou os seguintes valores de erros. MAPE de $10.0192$ para o conjunto de validação e $10.9309$ para o conjunto de treinamento. E valores de RMSE de $3.7165$ para o conjunto de validação e $4.0335$ para o conjunto de treinamento.
+
+O janelamento utilizado no nono experimento foi de 6, com um codificação do mês 12 bits, uma topologia composta de $23$ processadores, o algoritmo de treinamento "trainlm", com a função "logsig", e com uma função de saída "logsig", e com a utilização do critério de parada antecipada. A Fig. \ref{topo9} apresenta à topologia da rede no nono experimento. 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.5]{Images/topologia9.jpg}
+	\caption{Topologia da rede para o nono teste realizado.}
+	\label{topo9}
+\end{figure} 
+
+
+O conjunto de treinamento, validação e teste para o nono experimento é apresentado na Fig. \ref{teste9}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.15]{Images/Teste9.jpg}
+	\caption{Os gráficos apresentam da esquerda para a direita os conjuntos de treinamento, validação e teste da rede para o primeiro experimento. Em vermelho é registrado o dado real, enquanto em azul é apresentado o ajuste da rede. Aonde o eixo cartesiano horizontal representa os meses e o eixo vertical a sensação térmica.}
+	\label{teste9}
+\end{figure} 
+
+O presente teste apresentou os seguintes valores de erros. MAPE de $9.8988$ para o conjunto de validação e $10.1712$ para o conjunto de treinamento. E valores de RMSE de $3.6942$ para o conjunto de validação e $3.9312$ para o conjunto de treinamento.
+
+No final deste relatório é apresentado um quadro geral de todos os testes realizados.
+
+\begin{figure*}[ht!]
+	\centering
+	\subfloat[Experimento 1]{
+		\includegraphics[height=8cm]{Images/Teste1.jpg}
 	}
 	\quad %espaco separador
-	\subfloat[Teste]{
-		\includegraphics[height=5cm]{Images/CtestTESTE1.eps}
-		\label{testeT1}
+	\subfloat[Experimento 2]{
+		\includegraphics[height=8cm]{Images/Teste2.jpg}
 	}
 	\quad %espaco separador
-    \subfloat[Validação]{
-	\includegraphics[height=5cm]{Images/CvalTESTE1.eps}
-	\label{validacaoT1}
+	\subfloat[Experimento 3]{
+		\includegraphics[height=8cm]{Images/Teste3.jpg}
+	}
+    \caption{Quadro geral de testes. Da primeira para a última tríades de gráficos estão apresentadas na ordem crescente de experimentos que vão do $1-3$. }
+\end{figure*}
+
+
+\begin{figure*}[ht!]
+	\centering
+    \subfloat[Experimento 4]{
+       	\includegraphics[height=8cm]{Images/Teste4.jpg}
     }
-	\caption{Apresenta os teste realizados com o janelamento de $12$.}
-	\label{Teste1}
-\end{figure}
+    \quad %espaco separador
+    \subfloat[Experimento 5]{
+	    \includegraphics[height=8cm]{Images/Teste5.jpg}
+    }
+    \quad %espaco separador
+    \subfloat[Experimento 6]{
+    	\includegraphics[height=8cm]{Images/Teste6.jpg}
+    }
+    \caption{Quadro geral de testes. Da primeira para a última tríades de gráficos estão apresentadas na ordem crescente de experimentos que vão do $4-6$. }
+\end{figure*}
 
-\begin{figure}[ht!]
-	\centering
-	\subfloat[Treino]{
-		\includegraphics[height=5cm]{Images/CtreinoTESTE2.eps}
-		\label{treinoT2}
-	}
-	\quad %espaco separador
-	\subfloat[Teste]{
-		\includegraphics[height=5cm]{Images/CtestTESTE2.eps}
-		\label{testeT2}
-	}
-	\quad %espaco separador
-	\subfloat[Validação]{
-		\includegraphics[height=5cm]{Images/CvalTESTE2.eps}
-		\label{validacaoT2}
-	}
-	\caption{Apresenta os teste realizados com o janelamento de $12$.}
-	\label{Teste2}
-\end{figure}
 
-\begin{figure}[ht!]
+\begin{figure*}[ht!]
 	\centering
-	\subfloat[Treino]{
-		\includegraphics[height=5cm]{Images/CtreinoTESTE1.eps}
-		\label{treinoT1}
-	}
-	\quad %espaco separador
-	\subfloat[Teste]{
-		\includegraphics[height=5cm]{Images/CtestTESTE1.eps}
-		\label{treinoT2}
-	}
-	\quad %espaco separador
-	\subfloat[Validação]{
-		\includegraphics[height=5cm]{Images/CvalTESTE1.eps}
-		\label{TreinoT3}
-	}
-	\caption{Apresenta os teste realizados com o janelamento de $12$.}
-	\label{Treino1}
-\end{figure}
+    \subfloat[Experimento 7]{
+    	\includegraphics[height=8cm]{Images/Teste7.jpg}
+    }
+    \quad %espaco separador
+    \subfloat[Experimento 8]{
+    	\includegraphics[height=8cm]{Images/Teste8.jpg}
+    }
+    \quad %espaco separador
+    \subfloat[Experimento 9]{
+    	\includegraphics[height=8cm]{Images/Teste9.jpg}
+    }
+    \caption{Quadro geral de testes. Da primeira para a última tríades de gráficos estão apresentadas na ordem crescente de experimentos que vão do $7-9$. }
+\end{figure*}
 
-\begin{figure}[ht!]
-	\centering
-	\subfloat[Treino]{
-		\includegraphics[height=5cm]{Images/CtreinoTESTE1.eps}
-		\label{treinoT1}
-	}
-	\quad %espaco separador
-	\subfloat[Teste]{
-		\includegraphics[height=5cm]{Images/CtestTESTE1.eps}
-		\label{treinoT2}
-	}
-	\quad %espaco separador
-	\subfloat[Validação]{
-		\includegraphics[height=5cm]{Images/CvalTESTE1.eps}
-		\label{TreinoT3}
-	}
-	\caption{Apresenta os teste realizados com o janelamento de $12$.}
-	\label{Treino1}
-\end{figure}
-
-\begin{figure}[ht!]
-	\centering
-	\subfloat[Treino]{
-		\includegraphics[height=5cm]{Images/CtreinoTESTE1.eps}
-		\label{treinoT1}
-	}
-	\quad %espaco separador
-	\subfloat[Teste]{
-		\includegraphics[height=5cm]{Images/CtestTESTE1.eps}
-		\label{treinoT2}
-	}
-	\quad %espaco separador
-	\subfloat[Validação]{
-		\includegraphics[height=5cm]{Images/CvalTESTE1.eps}
-		\label{TreinoT3}
-	}
-	\caption{Apresenta os teste realizados com o janelamento de $12$.}
-	\label{Treino1}
-\end{figure}
-
-\begin{figure}[ht!]
-	\centering
-	\subfloat[Treino]{
-		\includegraphics[height=5cm]{Images/CtreinoTESTE1.eps}
-		\label{treinoT1}
-	}
-	\quad %espaco separador
-	\subfloat[Teste]{
-		\includegraphics[height=5cm]{Images/CtestTESTE1.eps}
-		\label{treinoT2}
-	}
-	\quad %espaco separador
-	\subfloat[Validação]{
-		\includegraphics[height=5cm]{Images/CvalTESTE1.eps}
-		\label{TreinoT3}
-	}
-	\caption{Apresenta os teste realizados com o janelamento de $12$.}
-	\label{Treino1}
-\end{figure}
-
-\begin{figure}[ht!]
-	\centering
-	\subfloat[Treino]{
-		\includegraphics[height=5cm]{Images/CtreinoTESTE1.eps}
-		\label{treinoT1}
-	}
-	\quad %espaco separador
-	\subfloat[Teste]{
-		\includegraphics[height=5cm]{Images/CtestTESTE1.eps}
-		\label{treinoT2}
-	}
-	\quad %espaco separador
-	\subfloat[Validação]{
-		\includegraphics[height=5cm]{Images/CvalTESTE1.eps}
-		\label{TreinoT3}
-	}
-	\caption{Apresenta os teste realizados com o janelamento de $12$.}
-	\label{Treino1}
-\end{figure}
-
-\begin{figure}[ht!]
-	\centering
-	\subfloat[Treino]{
-		\includegraphics[height=5cm]{Images/CtreinoTESTE1.eps}
-		\label{treinoT1}
-	}
-	\quad %espaco separador
-	\subfloat[Teste]{
-		\includegraphics[height=5cm]{Images/CtestTESTE1.eps}
-		\label{treinoT2}
-	}
-	\quad %espaco separador
-	\subfloat[Validação]{
-		\includegraphics[height=5cm]{Images/CvalTESTE1.eps}
-		\label{TreinoT3}
-	}
-	\caption{Apresenta os teste realizados com o janelamento de $12$.}
-	\label{Treino1}
-\end{figure}
 
 \section{Conclusões}
 
+
+Os experimentos realizados apresentam uma sequência lógica de alterações de parâmetros da rede. Isto é, somente um parâmetro é alterado por vez, enquanto os demais permanecem inalterados. 
+
+Dentre esta sequência de experimentos o que apresentou o melhor resultado foi experimento de número três, cujo janelamento utilizado foi o de 6, com um codificação do mês 4 bits, uma topologia composta de $13$ processadores, o algoritmo de treinamento "trainlm", com a função "tansig", e com uma função de saída linear, e sem a utilização do critério de parada antecipada.  Este apresentou erros de MAPE de $3.3669$ para o conjunto de validação e $4.3468$ para o conjunto de treinamento. E valores de RMSE de $1.5717$ para o conjunto de validação e $2.3305$ para o conjunto de treinamento.
+
+Em contrapartida, o experimento que apresentou o pior desempenho foi o oitavo cujo janelamento utilizado foi de 6, com um codificação do mês 12 bits, uma topologia composta de $23$ processadores, o algoritmo de treinamento "trainlm", com a função "logsig", e com uma função de saída "logsig", e sem a utilização do critério de parada antecipada. Apresentando erros de MAPE de $10.0192$ para o conjunto de validação e $10.9309$ para o conjunto de treinamento. E valores de RMSE de $3.7165$ para o conjunto de validação e $4.0335$ para o conjunto de treinamento.
+
+Essa discrepância registrada se deveu principalmente ao fato de que o experimento $3$ possui uma janela de previsão menor do que o experimento $8$. Outro fator importante para o aumento dos erros foi a utilização do critério de parada antecipada no experimento $8$. Como neste caso o número de processadores foi aumentado para $23$ seria necessário aumentar o número de ciclos de treinamento ou diminuir o critério de parada. 
+
+Outra questão iportante foi a mudança da função de saída de linear para "logsig".A função linear possui um comportamento sem grandes variações entre os pontos que a descrevem. Enquanto que a função "logsig" já apresenta um comportamento mais variável. Soma-se a isso ao fato de a natureza do dado escolhido (centro do Rio de Janeiro) apresentar pouca variação no comportamento de temperatura ao longo dos meses se comparado com outras regiões da cidade. 
 
 % Now we need a bibliography:
 

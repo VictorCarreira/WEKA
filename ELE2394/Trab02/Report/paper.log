@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.4.27)  18 MAY 2018 00:05
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.4.27)  23 MAY 2018 01:24
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -323,125 +323,7 @@ Package: stfloats 2017/03/27 v3.3 Improve float mechanism and baselineskip sett
 ings
 \@dblbotnum=\count122
 \c@dblbotnumber=\count123
-) (./paper.aux
-
-LaTeX Warning: Label `treinoT1' multiply defined.
-
-
-LaTeX Warning: Label `sub@treinoT1' multiply defined.
-
-
-LaTeX Warning: Label `treinoT2' multiply defined.
-
-
-LaTeX Warning: Label `sub@treinoT2' multiply defined.
-
-
-LaTeX Warning: Label `treinoT1' multiply defined.
-
-
-LaTeX Warning: Label `sub@treinoT1' multiply defined.
-
-
-LaTeX Warning: Label `treinoT2' multiply defined.
-
-
-LaTeX Warning: Label `sub@treinoT2' multiply defined.
-
-
-LaTeX Warning: Label `TreinoT3' multiply defined.
-
-
-LaTeX Warning: Label `sub@TreinoT3' multiply defined.
-
-
-LaTeX Warning: Label `Treino1' multiply defined.
-
-
-LaTeX Warning: Label `treinoT1' multiply defined.
-
-
-LaTeX Warning: Label `sub@treinoT1' multiply defined.
-
-
-LaTeX Warning: Label `treinoT2' multiply defined.
-
-
-LaTeX Warning: Label `sub@treinoT2' multiply defined.
-
-
-LaTeX Warning: Label `TreinoT3' multiply defined.
-
-
-LaTeX Warning: Label `sub@TreinoT3' multiply defined.
-
-
-LaTeX Warning: Label `Treino1' multiply defined.
-
-
-LaTeX Warning: Label `treinoT1' multiply defined.
-
-
-LaTeX Warning: Label `sub@treinoT1' multiply defined.
-
-
-LaTeX Warning: Label `treinoT2' multiply defined.
-
-
-LaTeX Warning: Label `sub@treinoT2' multiply defined.
-
-
-LaTeX Warning: Label `TreinoT3' multiply defined.
-
-
-LaTeX Warning: Label `sub@TreinoT3' multiply defined.
-
-
-LaTeX Warning: Label `Treino1' multiply defined.
-
-
-LaTeX Warning: Label `treinoT1' multiply defined.
-
-
-LaTeX Warning: Label `sub@treinoT1' multiply defined.
-
-
-LaTeX Warning: Label `treinoT2' multiply defined.
-
-
-LaTeX Warning: Label `sub@treinoT2' multiply defined.
-
-
-LaTeX Warning: Label `TreinoT3' multiply defined.
-
-
-LaTeX Warning: Label `sub@TreinoT3' multiply defined.
-
-
-LaTeX Warning: Label `Treino1' multiply defined.
-
-
-LaTeX Warning: Label `treinoT1' multiply defined.
-
-
-LaTeX Warning: Label `sub@treinoT1' multiply defined.
-
-
-LaTeX Warning: Label `treinoT2' multiply defined.
-
-
-LaTeX Warning: Label `sub@treinoT2' multiply defined.
-
-
-LaTeX Warning: Label `TreinoT3' multiply defined.
-
-
-LaTeX Warning: Label `sub@TreinoT3' multiply defined.
-
-
-LaTeX Warning: Label `Treino1' multiply defined.
-
-)
+) (./paper.aux)
 \openout1 = `paper.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 138.
@@ -456,7 +338,8 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 138.
 LaTeX Font Info:    ... okay on input line 138.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 138.
 LaTeX Font Info:    ... okay on input line 138.
- (/usr/share/texlive/texmf-dist/tex/latex/ucs/ucsencs.def
+
+(/usr/share/texlive/texmf-dist/tex/latex/ucs/ucsencs.def
 File: ucsencs.def 2011/01/21 Fixes to fontencodings LGR, T3
 )
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
@@ -535,447 +418,202 @@ Package caption Info: End \AtBeginDocument code.
 (/usr/share/texlive/texmf-dist/tex/latex/ucs/data/uni-0.def
 File: uni-0.def 2013/05/13 UCS: Unicode data U+0000..U+00FF
 )
-Underfull \hbox (badness 10000) in paragraph at lines 176--178
+Underfull \hbox (badness 10000) in paragraph at lines 178--180
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 191--193
+Underfull \hbox (badness 10000) in paragraph at lines 193--195
 
  []
 
-(/usr/share/texlive/texmf-dist/tex/latex/ucs/data/uni-32.def
-File: uni-32.def 2013/05/13 UCS: Unicode data U+2000..U+20FF
-) [1
+[1
 Non-PDF special ignored!{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
 
 ]
-Package epstopdf Info: Source file: <Images/McCulloch.eps>
-(epstopdf)                    date: 2018-05-10 13:31:24
-(epstopdf)                    size: 303073 bytes
-(epstopdf)             Output file: <Images/McCulloch-eps-converted-to.pdf>
-(epstopdf)                    date: 2018-05-10 13:31:24
-(epstopdf)                    size: 22810 bytes
-(epstopdf)             Command: <repstopdf --outfile=Images/McCulloch-eps-conve
-rted-to.pdf Images/McCulloch.eps>
-(epstopdf)             \includegraphics on input line 245.
-Package epstopdf Info: Output file is already uptodate.
-<Images/McCulloch-eps-converted-to.pdf, id=12, 456.70625pt x 111.41624pt>
-File: Images/McCulloch-eps-converted-to.pdf Graphic file (type pdf)
-<use Images/McCulloch-eps-converted-to.pdf>
-Package pdftex.def Info: Images/McCulloch-eps-converted-to.pdf  used on input l
-ine 245.
-(pdftex.def)             Requested size: 365.36548pt x 89.1331pt.
-Package epstopdf Info: Source file: <Images/CtreinoTESTE1.eps>
-(epstopdf)                    date: 2018-05-10 18:14:17
-(epstopdf)                    size: 71716 bytes
-(epstopdf)             Output file: <Images/CtreinoTESTE1-eps-converted-to.pdf>
+(/usr/share/texlive/texmf-dist/tex/latex/ucs/data/uni-32.def
+File: uni-32.def 2013/05/13 UCS: Unicode data U+2000..U+20FF
+)
+Underfull \hbox (badness 10000) in paragraph at lines 239--251
 
-(epstopdf)                    date: 2018-05-17 14:20:25
-(epstopdf)                    size: 18390 bytes
-(epstopdf)             Command: <repstopdf --outfile=Images/CtreinoTESTE1-eps-c
-onverted-to.pdf Images/CtreinoTESTE1.eps>
-(epstopdf)             \includegraphics on input line 262.
-Package epstopdf Info: Output file is already uptodate.
-<Images/CtreinoTESTE1-eps-converted-to.pdf, id=13, 422.57875pt x 316.18124pt>
-File: Images/CtreinoTESTE1-eps-converted-to.pdf Graphic file (type pdf)
-<use Images/CtreinoTESTE1-eps-converted-to.pdf>
-Package pdftex.def Info: Images/CtreinoTESTE1-eps-converted-to.pdf  used on inp
-ut line 262.
-(pdftex.def)             Requested size: 190.13933pt x 142.26378pt.
-Package epstopdf Info: Source file: <Images/CtestTESTE1.eps>
-(epstopdf)                    date: 2018-05-10 18:14:18
-(epstopdf)                    size: 71714 bytes
-(epstopdf)             Output file: <Images/CtestTESTE1-eps-converted-to.pdf>
-(epstopdf)                    date: 2018-05-17 14:16:53
-(epstopdf)                    size: 18390 bytes
-(epstopdf)             Command: <repstopdf --outfile=Images/CtestTESTE1-eps-con
-verted-to.pdf Images/CtestTESTE1.eps>
-(epstopdf)             \includegraphics on input line 267.
-Package epstopdf Info: Output file is already uptodate.
-<Images/CtestTESTE1-eps-converted-to.pdf, id=14, 422.57875pt x 316.18124pt>
-File: Images/CtestTESTE1-eps-converted-to.pdf Graphic file (type pdf)
-<use Images/CtestTESTE1-eps-converted-to.pdf>
-Package pdftex.def Info: Images/CtestTESTE1-eps-converted-to.pdf  used on input
- line 267.
-(pdftex.def)             Requested size: 190.13933pt x 142.26378pt.
-Package epstopdf Info: Source file: <Images/CvalTESTE1.eps>
-(epstopdf)                    date: 2018-05-10 18:14:18
-(epstopdf)                    size: 71713 bytes
-(epstopdf)             Output file: <Images/CvalTESTE1-eps-converted-to.pdf>
-(epstopdf)                    date: 2018-05-17 14:22:58
-(epstopdf)                    size: 18390 bytes
-(epstopdf)             Command: <repstopdf --outfile=Images/CvalTESTE1-eps-conv
-erted-to.pdf Images/CvalTESTE1.eps>
-(epstopdf)             \includegraphics on input line 272.
-Package epstopdf Info: Output file is already uptodate.
-<Images/CvalTESTE1-eps-converted-to.pdf, id=15, 422.57875pt x 316.18124pt>
-File: Images/CvalTESTE1-eps-converted-to.pdf Graphic file (type pdf)
-<use Images/CvalTESTE1-eps-converted-to.pdf>
-Package pdftex.def Info: Images/CvalTESTE1-eps-converted-to.pdf  used on input 
-line 272.
-(pdftex.def)             Requested size: 190.13933pt x 142.26378pt.
-Package epstopdf Info: Source file: <Images/CtreinoTESTE2.eps>
-(epstopdf)                    date: 2018-05-10 18:18:23
-(epstopdf)                    size: 68849 bytes
-(epstopdf)             Output file: <Images/CtreinoTESTE2-eps-converted-to.pdf>
+ []
 
-(epstopdf)                    date: 2018-05-18 00:05:10
-(epstopdf)                    size: 18102 bytes
-(epstopdf)             Command: <repstopdf --outfile=Images/CtreinoTESTE2-eps-c
-onverted-to.pdf Images/CtreinoTESTE2.eps>
-(epstopdf)             \includegraphics on input line 282.
-Package epstopdf Info: Output file is already uptodate.
-<Images/CtreinoTESTE2-eps-converted-to.pdf, id=16, 422.57875pt x 316.18124pt>
-File: Images/CtreinoTESTE2-eps-converted-to.pdf Graphic file (type pdf)
-<use Images/CtreinoTESTE2-eps-converted-to.pdf>
-Package pdftex.def Info: Images/CtreinoTESTE2-eps-converted-to.pdf  used on inp
-ut line 282.
-(pdftex.def)             Requested size: 190.13933pt x 142.26378pt.
-Package epstopdf Info: Source file: <Images/CtestTESTE2.eps>
-(epstopdf)                    date: 2018-05-10 18:18:24
-(epstopdf)                    size: 68847 bytes
-(epstopdf)             Output file: <Images/CtestTESTE2-eps-converted-to.pdf>
-(epstopdf)                    date: 2018-05-18 00:05:11
-(epstopdf)                    size: 18102 bytes
-(epstopdf)             Command: <repstopdf --outfile=Images/CtestTESTE2-eps-con
-verted-to.pdf Images/CtestTESTE2.eps>
-(epstopdf)             \includegraphics on input line 287.
-Package epstopdf Info: Output file is already uptodate.
-<Images/CtestTESTE2-eps-converted-to.pdf, id=17, 422.57875pt x 316.18124pt>
-File: Images/CtestTESTE2-eps-converted-to.pdf Graphic file (type pdf)
-<use Images/CtestTESTE2-eps-converted-to.pdf>
-Package pdftex.def Info: Images/CtestTESTE2-eps-converted-to.pdf  used on input
- line 287.
-(pdftex.def)             Requested size: 190.13933pt x 142.26378pt.
-Package epstopdf Info: Source file: <Images/CvalTESTE2.eps>
-(epstopdf)                    date: 2018-05-10 18:18:24
-(epstopdf)                    size: 68846 bytes
-(epstopdf)             Output file: <Images/CvalTESTE2-eps-converted-to.pdf>
-(epstopdf)                    date: 2018-05-18 00:05:11
-(epstopdf)                    size: 18102 bytes
-(epstopdf)             Command: <repstopdf --outfile=Images/CvalTESTE2-eps-conv
-erted-to.pdf Images/CvalTESTE2.eps>
-(epstopdf)             \includegraphics on input line 292.
-Package epstopdf Info: Output file is already uptodate.
-<Images/CvalTESTE2-eps-converted-to.pdf, id=18, 422.57875pt x 316.18124pt>
-File: Images/CvalTESTE2-eps-converted-to.pdf Graphic file (type pdf)
-<use Images/CvalTESTE2-eps-converted-to.pdf>
-Package pdftex.def Info: Images/CvalTESTE2-eps-converted-to.pdf  used on input 
-line 292.
-(pdftex.def)             Requested size: 190.13933pt x 142.26378pt.
-Package epstopdf Info: Source file: <Images/CtreinoTESTE1.eps>
-(epstopdf)                    date: 2018-05-10 18:14:17
-(epstopdf)                    size: 71716 bytes
-(epstopdf)             Output file: <Images/CtreinoTESTE1-eps-converted-to.pdf>
+<Images/topologia1.jpg, id=15, 417.05812pt x 123.46124pt>
+File: Images/topologia1.jpg Graphic file (type jpg)
+<use Images/topologia1.jpg>
+Package pdftex.def Info: Images/topologia1.jpg  used on input line 262.
+(pdftex.def)             Requested size: 208.52855pt x 61.73045pt.
+<Images/Teste1.jpg, id=16, 1445.4pt x 786.94pt>
+File: Images/Teste1.jpg Graphic file (type jpg)
+<use Images/Teste1.jpg>
+Package pdftex.def Info: Images/Teste1.jpg  used on input line 272.
+(pdftex.def)             Requested size: 216.80064pt x 118.0359pt.
+[2 <./Images/topologia1.jpg> <./Images/Teste1.jpg>]
+<Images/topologia2.jpg, id=24, 416.30531pt x 115.93312pt>
+File: Images/topologia2.jpg Graphic file (type jpg)
+<use Images/topologia2.jpg>
+Package pdftex.def Info: Images/topologia2.jpg  used on input line 283.
+(pdftex.def)             Requested size: 208.15215pt x 57.96642pt.
+<Images/Teste2.jpg, id=25, 1445.4pt x 786.94pt>
+File: Images/Teste2.jpg Graphic file (type jpg)
+<use Images/Teste2.jpg>
+Package pdftex.def Info: Images/Teste2.jpg  used on input line 293.
+(pdftex.def)             Requested size: 216.80064pt x 118.0359pt.
+<Images/topologia3.jpg, id=26, 415.5525pt x 127.22531pt>
+File: Images/topologia3.jpg Graphic file (type jpg)
+<use Images/topologia3.jpg>
+Package pdftex.def Info: Images/topologia3.jpg  used on input line 304.
+(pdftex.def)             Requested size: 207.77574pt x 63.61249pt.
+<Images/Teste3.jpg, id=27, 1445.4pt x 786.94pt>
+File: Images/Teste3.jpg Graphic file (type jpg)
+<use Images/Teste3.jpg>
+Package pdftex.def Info: Images/Teste3.jpg  used on input line 314.
+(pdftex.def)             Requested size: 216.80064pt x 118.0359pt.
+<Images/topologia4.jpg, id=28, 426.09187pt x 122.70844pt>
+File: Images/topologia4.jpg Graphic file (type jpg)
+<use Images/topologia4.jpg>
+Package pdftex.def Info: Images/topologia4.jpg  used on input line 325.
+(pdftex.def)             Requested size: 213.04541pt x 61.35406pt.
+<Images/Teste4.jpg, id=29, 1445.4pt x 786.94pt>
+File: Images/Teste4.jpg Graphic file (type jpg)
+<use Images/Teste4.jpg>
+Package pdftex.def Info: Images/Teste4.jpg  used on input line 335.
+(pdftex.def)             Requested size: 216.80064pt x 118.0359pt.
 
-(epstopdf)                    date: 2018-05-17 14:20:25
-(epstopdf)                    size: 18390 bytes
-(epstopdf)             Command: <repstopdf --outfile=Images/CtreinoTESTE1-eps-c
-onverted-to.pdf Images/CtreinoTESTE1.eps>
-(epstopdf)             \includegraphics on input line 302.
-Package epstopdf Info: Output file is already uptodate.
-File: Images/CtreinoTESTE1-eps-converted-to.pdf Graphic file (type pdf)
-<use Images/CtreinoTESTE1-eps-converted-to.pdf>
-Package pdftex.def Info: Images/CtreinoTESTE1-eps-converted-to.pdf  used on inp
-ut line 302.
-(pdftex.def)             Requested size: 190.13933pt x 142.26378pt.
-Package epstopdf Info: Source file: <Images/CtestTESTE1.eps>
-(epstopdf)                    date: 2018-05-10 18:14:18
-(epstopdf)                    size: 71714 bytes
-(epstopdf)             Output file: <Images/CtestTESTE1-eps-converted-to.pdf>
-(epstopdf)                    date: 2018-05-17 14:16:53
-(epstopdf)                    size: 18390 bytes
-(epstopdf)             Command: <repstopdf --outfile=Images/CtestTESTE1-eps-con
-verted-to.pdf Images/CtestTESTE1.eps>
-(epstopdf)             \includegraphics on input line 307.
-Package epstopdf Info: Output file is already uptodate.
-File: Images/CtestTESTE1-eps-converted-to.pdf Graphic file (type pdf)
-<use Images/CtestTESTE1-eps-converted-to.pdf>
-Package pdftex.def Info: Images/CtestTESTE1-eps-converted-to.pdf  used on input
- line 307.
-(pdftex.def)             Requested size: 190.13933pt x 142.26378pt.
-Package epstopdf Info: Source file: <Images/CvalTESTE1.eps>
-(epstopdf)                    date: 2018-05-10 18:14:18
-(epstopdf)                    size: 71713 bytes
-(epstopdf)             Output file: <Images/CvalTESTE1-eps-converted-to.pdf>
-(epstopdf)                    date: 2018-05-17 14:22:58
-(epstopdf)                    size: 18390 bytes
-(epstopdf)             Command: <repstopdf --outfile=Images/CvalTESTE1-eps-conv
-erted-to.pdf Images/CvalTESTE1.eps>
-(epstopdf)             \includegraphics on input line 312.
-Package epstopdf Info: Output file is already uptodate.
-File: Images/CvalTESTE1-eps-converted-to.pdf Graphic file (type pdf)
-<use Images/CvalTESTE1-eps-converted-to.pdf>
-Package pdftex.def Info: Images/CvalTESTE1-eps-converted-to.pdf  used on input 
-line 312.
-(pdftex.def)             Requested size: 190.13933pt x 142.26378pt.
-Package epstopdf Info: Source file: <Images/CtreinoTESTE1.eps>
-(epstopdf)                    date: 2018-05-10 18:14:17
-(epstopdf)                    size: 71716 bytes
-(epstopdf)             Output file: <Images/CtreinoTESTE1-eps-converted-to.pdf>
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-(epstopdf)                    date: 2018-05-17 14:20:25
-(epstopdf)                    size: 18390 bytes
-(epstopdf)             Command: <repstopdf --outfile=Images/CtreinoTESTE1-eps-c
-onverted-to.pdf Images/CtreinoTESTE1.eps>
-(epstopdf)             \includegraphics on input line 322.
-Package epstopdf Info: Output file is already uptodate.
-File: Images/CtreinoTESTE1-eps-converted-to.pdf Graphic file (type pdf)
-<use Images/CtreinoTESTE1-eps-converted-to.pdf>
-Package pdftex.def Info: Images/CtreinoTESTE1-eps-converted-to.pdf  used on inp
-ut line 322.
-(pdftex.def)             Requested size: 190.13933pt x 142.26378pt.
-Package epstopdf Info: Source file: <Images/CtestTESTE1.eps>
-(epstopdf)                    date: 2018-05-10 18:14:18
-(epstopdf)                    size: 71714 bytes
-(epstopdf)             Output file: <Images/CtestTESTE1-eps-converted-to.pdf>
-(epstopdf)                    date: 2018-05-17 14:16:53
-(epstopdf)                    size: 18390 bytes
-(epstopdf)             Command: <repstopdf --outfile=Images/CtestTESTE1-eps-con
-verted-to.pdf Images/CtestTESTE1.eps>
-(epstopdf)             \includegraphics on input line 327.
-Package epstopdf Info: Output file is already uptodate.
-File: Images/CtestTESTE1-eps-converted-to.pdf Graphic file (type pdf)
-<use Images/CtestTESTE1-eps-converted-to.pdf>
-Package pdftex.def Info: Images/CtestTESTE1-eps-converted-to.pdf  used on input
- line 327.
-(pdftex.def)             Requested size: 190.13933pt x 142.26378pt.
-Package epstopdf Info: Source file: <Images/CvalTESTE1.eps>
-(epstopdf)                    date: 2018-05-10 18:14:18
-(epstopdf)                    size: 71713 bytes
-(epstopdf)             Output file: <Images/CvalTESTE1-eps-converted-to.pdf>
-(epstopdf)                    date: 2018-05-17 14:22:58
-(epstopdf)                    size: 18390 bytes
-(epstopdf)             Command: <repstopdf --outfile=Images/CvalTESTE1-eps-conv
-erted-to.pdf Images/CvalTESTE1.eps>
-(epstopdf)             \includegraphics on input line 332.
-Package epstopdf Info: Output file is already uptodate.
-File: Images/CvalTESTE1-eps-converted-to.pdf Graphic file (type pdf)
-<use Images/CvalTESTE1-eps-converted-to.pdf>
-Package pdftex.def Info: Images/CvalTESTE1-eps-converted-to.pdf  used on input 
-line 332.
-(pdftex.def)             Requested size: 190.13933pt x 142.26378pt.
-Package epstopdf Info: Source file: <Images/CtreinoTESTE1.eps>
-(epstopdf)                    date: 2018-05-10 18:14:17
-(epstopdf)                    size: 71716 bytes
-(epstopdf)             Output file: <Images/CtreinoTESTE1-eps-converted-to.pdf>
+ [3 <./Images/topologia2.jpg> <./Images/Teste2.jpg> <./Images/topologia3.jpg> <
+./Images/Teste3.jpg> <./Images/topologia4.jpg>]
+<Images/topologia5.jpg, id=33, 438.13687pt x 122.70844pt>
+File: Images/topologia5.jpg Graphic file (type jpg)
+<use Images/topologia5.jpg>
+Package pdftex.def Info: Images/topologia5.jpg  used on input line 346.
+(pdftex.def)             Requested size: 219.06789pt x 61.35406pt.
+<Images/Teste5.jpg, id=34, 1445.4pt x 786.94pt>
+File: Images/Teste5.jpg Graphic file (type jpg)
+<use Images/Teste5.jpg>
+Package pdftex.def Info: Images/Teste5.jpg  used on input line 356.
+(pdftex.def)             Requested size: 216.80064pt x 118.0359pt.
+<Images/topologia6.jpg, id=35, 418.56375pt x 122.70844pt>
+File: Images/topologia6.jpg Graphic file (type jpg)
+<use Images/topologia6.jpg>
+Package pdftex.def Info: Images/topologia6.jpg  used on input line 367.
+(pdftex.def)             Requested size: 209.28136pt x 61.35406pt.
+<Images/Teste6.jpg, id=36, 1445.4pt x 786.94pt>
+File: Images/Teste6.jpg Graphic file (type jpg)
+<use Images/Teste6.jpg>
+Package pdftex.def Info: Images/Teste6.jpg  used on input line 377.
+(pdftex.def)             Requested size: 216.80064pt x 118.0359pt.
+<Images/topologia7.jpg, id=37, 411.78844pt x 128.73094pt>
+File: Images/topologia7.jpg Graphic file (type jpg)
+<use Images/topologia7.jpg>
+Package pdftex.def Info: Images/topologia7.jpg  used on input line 388.
+(pdftex.def)             Requested size: 205.8937pt x 64.3653pt.
+ [4 <./Images/Teste4.jpg> <./Images/topologia5.jpg> <./Images/Teste5.jpg> <./Im
+ages/topologia6.jpg> <./Images/Teste6.jpg> <./Images/topologia7.jpg>]
+<Images/Teste7.jpg, id=41, 1445.4pt x 786.94pt>
+File: Images/Teste7.jpg Graphic file (type jpg)
+<use Images/Teste7.jpg>
+Package pdftex.def Info: Images/Teste7.jpg  used on input line 398.
+(pdftex.def)             Requested size: 216.80064pt x 118.0359pt.
+<Images/topologia8.jpg, id=42, 416.30531pt x 118.19156pt>
+File: Images/topologia8.jpg Graphic file (type jpg)
+<use Images/topologia8.jpg>
+Package pdftex.def Info: Images/topologia8.jpg  used on input line 409.
+(pdftex.def)             Requested size: 208.15215pt x 59.09563pt.
+<Images/Teste8.jpg, id=43, 1445.4pt x 786.94pt>
+File: Images/Teste8.jpg Graphic file (type jpg)
+<use Images/Teste8.jpg>
+Package pdftex.def Info: Images/Teste8.jpg  used on input line 419.
+(pdftex.def)             Requested size: 216.80064pt x 118.0359pt.
 
-(epstopdf)                    date: 2018-05-17 14:20:25
-(epstopdf)                    size: 18390 bytes
-(epstopdf)             Command: <repstopdf --outfile=Images/CtreinoTESTE1-eps-c
-onverted-to.pdf Images/CtreinoTESTE1.eps>
-(epstopdf)             \includegraphics on input line 342.
-Package epstopdf Info: Output file is already uptodate.
-File: Images/CtreinoTESTE1-eps-converted-to.pdf Graphic file (type pdf)
-<use Images/CtreinoTESTE1-eps-converted-to.pdf>
-Package pdftex.def Info: Images/CtreinoTESTE1-eps-converted-to.pdf  used on inp
-ut line 342.
-(pdftex.def)             Requested size: 190.13933pt x 142.26378pt.
-Package epstopdf Info: Source file: <Images/CtestTESTE1.eps>
-(epstopdf)                    date: 2018-05-10 18:14:18
-(epstopdf)                    size: 71714 bytes
-(epstopdf)             Output file: <Images/CtestTESTE1-eps-converted-to.pdf>
-(epstopdf)                    date: 2018-05-17 14:16:53
-(epstopdf)                    size: 18390 bytes
-(epstopdf)             Command: <repstopdf --outfile=Images/CtestTESTE1-eps-con
-verted-to.pdf Images/CtestTESTE1.eps>
-(epstopdf)             \includegraphics on input line 347.
-Package epstopdf Info: Output file is already uptodate.
-File: Images/CtestTESTE1-eps-converted-to.pdf Graphic file (type pdf)
-<use Images/CtestTESTE1-eps-converted-to.pdf>
-Package pdftex.def Info: Images/CtestTESTE1-eps-converted-to.pdf  used on input
- line 347.
-(pdftex.def)             Requested size: 190.13933pt x 142.26378pt.
-Package epstopdf Info: Source file: <Images/CvalTESTE1.eps>
-(epstopdf)                    date: 2018-05-10 18:14:18
-(epstopdf)                    size: 71713 bytes
-(epstopdf)             Output file: <Images/CvalTESTE1-eps-converted-to.pdf>
-(epstopdf)                    date: 2018-05-17 14:22:58
-(epstopdf)                    size: 18390 bytes
-(epstopdf)             Command: <repstopdf --outfile=Images/CvalTESTE1-eps-conv
-erted-to.pdf Images/CvalTESTE1.eps>
-(epstopdf)             \includegraphics on input line 352.
-Package epstopdf Info: Output file is already uptodate.
-File: Images/CvalTESTE1-eps-converted-to.pdf Graphic file (type pdf)
-<use Images/CvalTESTE1-eps-converted-to.pdf>
-Package pdftex.def Info: Images/CvalTESTE1-eps-converted-to.pdf  used on input 
-line 352.
-(pdftex.def)             Requested size: 190.13933pt x 142.26378pt.
-Package epstopdf Info: Source file: <Images/CtreinoTESTE1.eps>
-(epstopdf)                    date: 2018-05-10 18:14:17
-(epstopdf)                    size: 71716 bytes
-(epstopdf)             Output file: <Images/CtreinoTESTE1-eps-converted-to.pdf>
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-(epstopdf)                    date: 2018-05-17 14:20:25
-(epstopdf)                    size: 18390 bytes
-(epstopdf)             Command: <repstopdf --outfile=Images/CtreinoTESTE1-eps-c
-onverted-to.pdf Images/CtreinoTESTE1.eps>
-(epstopdf)             \includegraphics on input line 362.
-Package epstopdf Info: Output file is already uptodate.
-File: Images/CtreinoTESTE1-eps-converted-to.pdf Graphic file (type pdf)
-<use Images/CtreinoTESTE1-eps-converted-to.pdf>
-Package pdftex.def Info: Images/CtreinoTESTE1-eps-converted-to.pdf  used on inp
-ut line 362.
-(pdftex.def)             Requested size: 190.13933pt x 142.26378pt.
-Package epstopdf Info: Source file: <Images/CtestTESTE1.eps>
-(epstopdf)                    date: 2018-05-10 18:14:18
-(epstopdf)                    size: 71714 bytes
-(epstopdf)             Output file: <Images/CtestTESTE1-eps-converted-to.pdf>
-(epstopdf)                    date: 2018-05-17 14:16:53
-(epstopdf)                    size: 18390 bytes
-(epstopdf)             Command: <repstopdf --outfile=Images/CtestTESTE1-eps-con
-verted-to.pdf Images/CtestTESTE1.eps>
-(epstopdf)             \includegraphics on input line 367.
-Package epstopdf Info: Output file is already uptodate.
-File: Images/CtestTESTE1-eps-converted-to.pdf Graphic file (type pdf)
-<use Images/CtestTESTE1-eps-converted-to.pdf>
-Package pdftex.def Info: Images/CtestTESTE1-eps-converted-to.pdf  used on input
- line 367.
-(pdftex.def)             Requested size: 190.13933pt x 142.26378pt.
-Package epstopdf Info: Source file: <Images/CvalTESTE1.eps>
-(epstopdf)                    date: 2018-05-10 18:14:18
-(epstopdf)                    size: 71713 bytes
-(epstopdf)             Output file: <Images/CvalTESTE1-eps-converted-to.pdf>
-(epstopdf)                    date: 2018-05-17 14:22:58
-(epstopdf)                    size: 18390 bytes
-(epstopdf)             Command: <repstopdf --outfile=Images/CvalTESTE1-eps-conv
-erted-to.pdf Images/CvalTESTE1.eps>
-(epstopdf)             \includegraphics on input line 372.
-Package epstopdf Info: Output file is already uptodate.
-File: Images/CvalTESTE1-eps-converted-to.pdf Graphic file (type pdf)
-<use Images/CvalTESTE1-eps-converted-to.pdf>
-Package pdftex.def Info: Images/CvalTESTE1-eps-converted-to.pdf  used on input 
-line 372.
-(pdftex.def)             Requested size: 190.13933pt x 142.26378pt.
-Package epstopdf Info: Source file: <Images/CtreinoTESTE1.eps>
-(epstopdf)                    date: 2018-05-10 18:14:17
-(epstopdf)                    size: 71716 bytes
-(epstopdf)             Output file: <Images/CtreinoTESTE1-eps-converted-to.pdf>
+<Images/topologia9.jpg, id=44, 417.05812pt x 121.20282pt>
+File: Images/topologia9.jpg Graphic file (type jpg)
+<use Images/topologia9.jpg>
+Package pdftex.def Info: Images/topologia9.jpg  used on input line 430.
+(pdftex.def)             Requested size: 208.52855pt x 60.60126pt.
+<Images/Teste9.jpg, id=45, 1445.4pt x 786.94pt>
+File: Images/Teste9.jpg Graphic file (type jpg)
+<use Images/Teste9.jpg>
+Package pdftex.def Info: Images/Teste9.jpg  used on input line 440.
+(pdftex.def)             Requested size: 216.80064pt x 118.0359pt.
+ [5 <./Images/Teste7.jpg> <./Images/topologia8.jpg> <./Images/Teste8.jpg> <./Im
+ages/topologia9.jpg> <./Images/Teste9.jpg>]
+File: Images/Teste1.jpg Graphic file (type jpg)
+<use Images/Teste1.jpg>
+Package pdftex.def Info: Images/Teste1.jpg  used on input line 453.
+(pdftex.def)             Requested size: 418.07457pt x 227.62204pt.
+File: Images/Teste2.jpg Graphic file (type jpg)
+<use Images/Teste2.jpg>
+Package pdftex.def Info: Images/Teste2.jpg  used on input line 457.
+(pdftex.def)             Requested size: 418.07457pt x 227.62204pt.
+File: Images/Teste3.jpg Graphic file (type jpg)
+<use Images/Teste3.jpg>
+Package pdftex.def Info: Images/Teste3.jpg  used on input line 461.
+(pdftex.def)             Requested size: 418.07457pt x 227.62204pt.
 
-(epstopdf)                    date: 2018-05-17 14:20:25
-(epstopdf)                    size: 18390 bytes
-(epstopdf)             Command: <repstopdf --outfile=Images/CtreinoTESTE1-eps-c
-onverted-to.pdf Images/CtreinoTESTE1.eps>
-(epstopdf)             \includegraphics on input line 382.
-Package epstopdf Info: Output file is already uptodate.
-File: Images/CtreinoTESTE1-eps-converted-to.pdf Graphic file (type pdf)
-<use Images/CtreinoTESTE1-eps-converted-to.pdf>
-Package pdftex.def Info: Images/CtreinoTESTE1-eps-converted-to.pdf  used on inp
-ut line 382.
-(pdftex.def)             Requested size: 190.13933pt x 142.26378pt.
-Package epstopdf Info: Source file: <Images/CtestTESTE1.eps>
-(epstopdf)                    date: 2018-05-10 18:14:18
-(epstopdf)                    size: 71714 bytes
-(epstopdf)             Output file: <Images/CtestTESTE1-eps-converted-to.pdf>
-(epstopdf)                    date: 2018-05-17 14:16:53
-(epstopdf)                    size: 18390 bytes
-(epstopdf)             Command: <repstopdf --outfile=Images/CtestTESTE1-eps-con
-verted-to.pdf Images/CtestTESTE1.eps>
-(epstopdf)             \includegraphics on input line 387.
-Package epstopdf Info: Output file is already uptodate.
-File: Images/CtestTESTE1-eps-converted-to.pdf Graphic file (type pdf)
-<use Images/CtestTESTE1-eps-converted-to.pdf>
-Package pdftex.def Info: Images/CtestTESTE1-eps-converted-to.pdf  used on input
- line 387.
-(pdftex.def)             Requested size: 190.13933pt x 142.26378pt.
-Package epstopdf Info: Source file: <Images/CvalTESTE1.eps>
-(epstopdf)                    date: 2018-05-10 18:14:18
-(epstopdf)                    size: 71713 bytes
-(epstopdf)             Output file: <Images/CvalTESTE1-eps-converted-to.pdf>
-(epstopdf)                    date: 2018-05-17 14:22:58
-(epstopdf)                    size: 18390 bytes
-(epstopdf)             Command: <repstopdf --outfile=Images/CvalTESTE1-eps-conv
-erted-to.pdf Images/CvalTESTE1.eps>
-(epstopdf)             \includegraphics on input line 392.
-Package epstopdf Info: Output file is already uptodate.
-File: Images/CvalTESTE1-eps-converted-to.pdf Graphic file (type pdf)
-<use Images/CvalTESTE1-eps-converted-to.pdf>
-Package pdftex.def Info: Images/CvalTESTE1-eps-converted-to.pdf  used on input 
-line 392.
-(pdftex.def)             Requested size: 190.13933pt x 142.26378pt.
-Package epstopdf Info: Source file: <Images/CtreinoTESTE1.eps>
-(epstopdf)                    date: 2018-05-10 18:14:17
-(epstopdf)                    size: 71716 bytes
-(epstopdf)             Output file: <Images/CtreinoTESTE1-eps-converted-to.pdf>
 
-(epstopdf)                    date: 2018-05-17 14:20:25
-(epstopdf)                    size: 18390 bytes
-(epstopdf)             Command: <repstopdf --outfile=Images/CtreinoTESTE1-eps-c
-onverted-to.pdf Images/CtreinoTESTE1.eps>
-(epstopdf)             \includegraphics on input line 402.
-Package epstopdf Info: Output file is already uptodate.
-File: Images/CtreinoTESTE1-eps-converted-to.pdf Graphic file (type pdf)
-<use Images/CtreinoTESTE1-eps-converted-to.pdf>
-Package pdftex.def Info: Images/CtreinoTESTE1-eps-converted-to.pdf  used on inp
-ut line 402.
-(pdftex.def)             Requested size: 190.13933pt x 142.26378pt.
-Package epstopdf Info: Source file: <Images/CtestTESTE1.eps>
-(epstopdf)                    date: 2018-05-10 18:14:18
-(epstopdf)                    size: 71714 bytes
-(epstopdf)             Output file: <Images/CtestTESTE1-eps-converted-to.pdf>
-(epstopdf)                    date: 2018-05-17 14:16:53
-(epstopdf)                    size: 18390 bytes
-(epstopdf)             Command: <repstopdf --outfile=Images/CtestTESTE1-eps-con
-verted-to.pdf Images/CtestTESTE1.eps>
-(epstopdf)             \includegraphics on input line 407.
-Package epstopdf Info: Output file is already uptodate.
-File: Images/CtestTESTE1-eps-converted-to.pdf Graphic file (type pdf)
-<use Images/CtestTESTE1-eps-converted-to.pdf>
-Package pdftex.def Info: Images/CtestTESTE1-eps-converted-to.pdf  used on input
- line 407.
-(pdftex.def)             Requested size: 190.13933pt x 142.26378pt.
-Package epstopdf Info: Source file: <Images/CvalTESTE1.eps>
-(epstopdf)                    date: 2018-05-10 18:14:18
-(epstopdf)                    size: 71713 bytes
-(epstopdf)             Output file: <Images/CvalTESTE1-eps-converted-to.pdf>
-(epstopdf)                    date: 2018-05-17 14:22:58
-(epstopdf)                    size: 18390 bytes
-(epstopdf)             Command: <repstopdf --outfile=Images/CvalTESTE1-eps-conv
-erted-to.pdf Images/CvalTESTE1.eps>
-(epstopdf)             \includegraphics on input line 412.
-Package epstopdf Info: Output file is already uptodate.
-File: Images/CvalTESTE1-eps-converted-to.pdf Graphic file (type pdf)
-<use Images/CvalTESTE1-eps-converted-to.pdf>
-Package pdftex.def Info: Images/CvalTESTE1-eps-converted-to.pdf  used on input 
-line 412.
-(pdftex.def)             Requested size: 190.13933pt x 142.26378pt.
+LaTeX Warning: Float too large for page by 55.86612pt on input line 463.
 
-(./paper.bbl) [2] [3 <./Images/McCulloch-eps-converted-to.pdf> <./Images/Ctrein
-oTESTE1-eps-converted-to.pdf> <./Images/CtestTESTE1-eps-converted-to.pdf> <./Im
-ages/CvalTESTE1-eps-converted-to.pdf> <./Images/CtreinoTESTE2-eps-converted-to.
-pdf> <./Images/CtestTESTE2-eps-converted-to.pdf> <./Images/CvalTESTE2-eps-conve
-rted-to.pdf>] [4] [5] [6] (./paper.aux)
+File: Images/Teste4.jpg Graphic file (type jpg)
+<use Images/Teste4.jpg>
+Package pdftex.def Info: Images/Teste4.jpg  used on input line 470.
+(pdftex.def)             Requested size: 418.07457pt x 227.62204pt.
+File: Images/Teste5.jpg Graphic file (type jpg)
+<use Images/Teste5.jpg>
+Package pdftex.def Info: Images/Teste5.jpg  used on input line 474.
+(pdftex.def)             Requested size: 418.07457pt x 227.62204pt.
+File: Images/Teste6.jpg Graphic file (type jpg)
+<use Images/Teste6.jpg>
+Package pdftex.def Info: Images/Teste6.jpg  used on input line 478.
+(pdftex.def)             Requested size: 418.07457pt x 227.62204pt.
 
-LaTeX Warning: There were multiply-defined labels.
+LaTeX Warning: Float too large for page by 55.86612pt on input line 480.
 
- ) 
+File: Images/Teste7.jpg Graphic file (type jpg)
+<use Images/Teste7.jpg>
+Package pdftex.def Info: Images/Teste7.jpg  used on input line 487.
+(pdftex.def)             Requested size: 418.07457pt x 227.62204pt.
+File: Images/Teste8.jpg Graphic file (type jpg)
+<use Images/Teste8.jpg>
+Package pdftex.def Info: Images/Teste8.jpg  used on input line 491.
+(pdftex.def)             Requested size: 418.07457pt x 227.62204pt.
+File: Images/Teste9.jpg Graphic file (type jpg)
+<use Images/Teste9.jpg>
+Package pdftex.def Info: Images/Teste9.jpg  used on input line 495.
+(pdftex.def)             Requested size: 418.07457pt x 227.62204pt.
+
+LaTeX Warning: Float too large for page by 55.86612pt on input line 497.
+
+(./paper.bbl) [6] [7] [8] [9] (./paper.aux) ) 
 Here is how much of TeX's memory you used:
- 6672 strings out of 492982
- 101546 string characters out of 6134896
- 200982 words of memory out of 5000000
- 10125 multiletter control sequences out of 15000+600000
- 39504 words of font info for 76 fonts, out of 8000000 for 9000
+ 6746 strings out of 492982
+ 102110 string characters out of 6134896
+ 192931 words of memory out of 5000000
+ 10184 multiletter control sequences out of 15000+600000
+ 40641 words of font info for 80 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 44i,12n,49p,895b,636s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
-e/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts
-/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/
-public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cms
-y10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb
-></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/te
-xlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-di
-st/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/
-urw/times/utmri8a.pfb>
-Output written on paper.pdf (6 pages, 243879 bytes).
+ 44i,9n,49p,895b,636s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texlive/texmf-dist/fon
+ts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi
+7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb><
+/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/sh
+are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times
+/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></
+usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on paper.pdf (9 pages, 1919644 bytes).
 PDF statistics:
- 186 PDF objects out of 1000 (max. 8388607)
- 124 compressed objects within 2 object streams
+ 105 PDF objects out of 1000 (max. 8388607)
+ 62 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 36 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 91 words of extra memory for PDF output out of 10000 (max. 10000000)
 
