@@ -38,13 +38,13 @@ title('Malha Retangular')
 
 %Treinamento automático
 
-%sM = som_make(sDn);
+%sM = som_make(sDn); %teste 3
 
 %Treinamento passo-a-passo 
 %opção 1
-sM = som_randinit(sDn,'msize', [10 10]);
+%sM = som_randinit(sDn,'msize', [10 10]); % testes 1 e 2 
 %opção 2
-%sM = som_seqtrain(sM,sDn,'radius',[4 1]);
+sM = som_seqtrain(sM,sDn,'radius',[4 1]); % teste 4
 
 %treinamento sequencial
 
@@ -60,9 +60,9 @@ som_cplane('rect', [10 5], 'r');
 som_show(sM,'umat','all','comp',1:4, 'empty','Labels','norm','d');
 
  
-   %som_cplane('hexa', [10 5], 'none');
-   %som_cplane('rect', [10 5], 'r');
-   %som_cplane(sM.topol, sM.codebook(:,1));
-   %U = som_umat(sM); som_cplane('hexaU',sM.topol.msize,U(:));
+   som_cplane('hexa', [10 5], 'none');
+   som_cplane('rect', [10 5], 'r');
+   som_cplane(sM.topol, sM.codebook(:,1));
+   U = som_umat(sM); som_cplane('hexaU',sM.topol.msize,U(:)); %teste 2,3,4
 
 
