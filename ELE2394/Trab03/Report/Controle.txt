@@ -2,4 +2,69 @@
 
 Este arquivo é um controle dos testes realizados no Trab03, mapas auto-organizáveis de kohonen. 
 
+%%%%%%%%%%%%%%%%%%%%Trabalho 03%%%%%%%%%%%%%%%%%%%%
+%%%%Mapas de Kohonen com o uso do toolbox%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%Victor Carreira%%%%%%%%%%%%%%%%%%
 
+%lendo o dado 
+
+sD = som_read_data('new-thyroid.data');
+
+
+%Normalizando os dados
+%'var' A variância dos dados é normalizada para 1(um)(operação linear).
+%'range' Os valores são normalizados pela amplitude dos dados entre [0,1] (operação linear).
+%'log' É aplicado o LogNatural aos valores:
+%xnew = log(x-m+1)
+%onde m = min(x).
+%'logistic' Transformação Logística ou softmax que leva todos valores entre [0,1]
+%'histD' Equalização por Histograma, os valores são escalados entre [0,1].
+%'histC' Equalização por histograma aproximada com operação parcialmente linear. Valores escalados entre
+%[0,1]
+%'eval' Operação definida livremente
+
+sDn = som_normalize(sD,'histC'); 
+
+
+
+% Escolhendo a topologia da rede:
+% Logo abaixo são mostrado dois exemplos
+figure1 = figure('Name','Exemplo_de_Malhas_SOM');
+subplot(1,2,1)
+som_cplane('hexa',[10 15],'none')
+title('Malha Hexagonal')
+subplot(1,2,2)
+som_cplane('rect',[10 15],'none')
+title('Malha Retangular')
+
+
+%%%%%%%%%%%%%%%%%%%TREINAMENTO (descomente a opção desejada)%%%%%%%%%%%%%%%
+
+%Treinamento automático
+
+%sM = som_make(sDn); %teste 3
+
+%Treinamento passo-a-passo 
+%opção 1
+%sM = som_randinit(sDn,'msize', [10 10]); % testes 1 e 2 
+%opção 2
+sM = som_seqtrain(sM,sDn,'radius',[4 1]); % teste 4
+
+%treinamento sequencial
+
+%sM = som_randinit(sDn,'msize', [10 10]);
+%[sM,sT] = som_seqtrain(sM,sD,'radius',[4 1]);
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Gerando os mapas
+som_cplane('rect', [10 5], 'r');
+som_show(sM,'umat','all','comp',1:4, 'empty','Labels','norm','d');
+
+ 
+   som_cplane('hexa', [10 5], 'none');
+   som_cplane('rect', [10 5], 'r');
+   som_cplane(sM.topol, sM.codebook(:,1));
+   U = som_umat(sM); som_cplane('hexaU',sM.topol.msize,U(:)); %teste 2,3,4
