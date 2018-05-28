@@ -194,24 +194,27 @@ Para os parâmetros que não listados, deve-se escolher um valor e explicar a es
 
 
 \section{Princípio Teórico}
-O neurônio de \citet{McCulloch1943} propõe um limite binário para a criação de um modelo. Este neurônio artificial registra uma soma de pesos de $n$ sinais de entrada, $x_{j}$, $j=1,2,3,...,n$, e fornece um \textit{output}\footnote{Valor de saída} de $1$ caso esta soma esteja acima do limite $u$. Caso contrário o \textit{output} é $0$. Matematicamente essa relação pode ser descrita de acordo com a Eq. \ref{Eq.neuronio-McCulloch}:
 
-\begin{eqnarray}
-y=\theta \left( \sum^{n}_{j=1} w_{j} x_{j} -u \right)
-\label{Eq.neuronio-McCulloch}
-\end{eqnarray}
+Os primeiros mapas auto-organizáveis foram propostos por \citet{Malsburg1976}.
 
-Onde $\theta$ é o passo dado na posição $0$, $w_{j}$ é chamada sinapse-peso associado a um $j_{esimo}$ \textit{input}. A título de simplificação a função limite\footnote{Genericamente chamada de função de ativação} $u$ é considerada um outro peso $w_{0}=-u$ anexado a um neurônio com um \textit{input} constante $x_{0}=1$. Pesos positivos correspondem a uma sinapse \textbf{excitatória}, enquanto pesos negativos correspondem a uma sinapse \textbf{inibitória}. Este modelo contém uma série de simplificações que não refletem o verdadeiro comportamento dos neurônios biológicos \citep{Mao1996}.  
-
-Derivações do neurônio de \citet{McCulloch1943} na escolha das funções de ativação. Uma função largamente utilizada é a função sigmóide, que exibe uma suavização dos \textit{outputs} a medida que o valor da função diminui \citep{Mao1996,Misra2010}. Essa função de ativação pode ser expressa de acordo com a Eq. \ref{f.sigmoide}:
-
-\begin{eqnarray}
-g(x)=1/(1+e^{-\beta x})
-\label{f.sigmoide}
-\end{eqnarray}
-
-Onde $\beta$ é o parâmetro de inclinação. %A Fig. \ref{Esquematico de McCulloch} ilustra a sequência lógica da operação de uma RNA para um neurônio simples de McCulloch-Pitts. 
-\\
+%O neurônio de \citet{McCulloch1943} propõe um limite binário para a criação de um modelo. Este neurônio artificial registra uma soma de pesos de $n$ sinais de entrada, $x_{j}$, $j=1,2,3,...,n$, e fornece um \textit{output}\footnote{Valor de saída} de $1$ caso esta soma esteja acima do limite $u$. Caso contrário o \textit{output} é $0$. Matematicamente essa relação pode ser descrita de acordo com a Eq. \ref{Eq.neuronio-McCulloch}:
+%
+%\begin{eqnarray}
+%y=\theta \left( \sum^{n}_{j=1} w_{j} x_{j} -u \right)
+%\label{Eq.neuronio-McCulloch}
+%\end{eqnarray}
+%
+%Onde $\theta$ é o passo dado na posição $0$, $w_{j}$ é chamada sinapse-peso associado a um $j_{esimo}$ \textit{input}. A título de simplificação a função limite\footnote{Genericamente chamada de função de ativação} $u$ é considerada um outro peso $w_{0}=-u$ anexado a um neurônio com um \textit{input} constante $x_{0}=1$. Pesos positivos correspondem a uma sinapse \textbf{excitatória}, enquanto pesos negativos correspondem a uma sinapse \textbf{inibitória}. Este modelo contém uma série de simplificações que não refletem o verdadeiro comportamento dos neurônios biológicos \citep{Mao1996}.  
+%
+%Derivações do neurônio de \citet{McCulloch1943} na escolha das funções de ativação. Uma função largamente utilizada é a função sigmóide, que exibe uma suavização dos \textit{outputs} a medida que o valor da função diminui \citep{Mao1996,Misra2010}. Essa função de ativação pode ser expressa de acordo com a Eq. \ref{f.sigmoide}:
+%
+%\begin{eqnarray}
+%g(x)=1/(1+e^{-\beta x})
+%\label{f.sigmoide}
+%\end{eqnarray}
+%
+%Onde $\beta$ é o parâmetro de inclinação. %A Fig. \ref{Esquematico de McCulloch} ilustra a sequência lógica da operação de uma RNA para um neurônio simples de McCulloch-Pitts. 
+%\\
 %\begin{figure*}[!ht]
 %	\centering
 %	\setlength{\fboxsep}{8pt}
@@ -228,7 +231,33 @@ Onde $\beta$ é o parâmetro de inclinação. %A Fig. \ref{Esquematico de McCull
 
 \section{Resultados}
 
+\begin{figure*}
+	\centering
+	\includegraphics[scale=0.5]{Images/SOM1.png}
+	\label{SOM1}
+	\caption{Primeiro teste.}
+\end{figure*}
 
+\begin{figure*}
+	\centering
+	\includegraphics[scale=0.5]{Images/SOM2.png}
+	\label{SOM2}
+	\caption{Segundo teste.}
+\end{figure*}
+
+\begin{figure*}
+	\centering
+	\includegraphics[scale=0.5]{Images/SOM3.png}
+	\label{SOM3}
+	\caption{Terceiro teste.}
+\end{figure*}
+
+\begin{figure*}
+	\centering
+	\includegraphics[scale=0.5]{Images/SOM4.png}
+	\label{SOM4}
+	\caption{Quarto teste.}
+\end{figure*}
 
 \section{Conclusões}
 
