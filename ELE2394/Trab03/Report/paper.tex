@@ -153,8 +153,11 @@
 \section{Introdução}
     As Redes Neurais Artificiais (RNA) são inspiradas em modelos sensoriais do processamento de tarefas realizadas pelo cérebro \citep{Hagan1996}. Uma RNA, portanto pode ser criada através da aplicação de algoritmos matemáticos que imitem a tarefa realizada por um neurônio \citep{Nedjah2016}. Uma rede neural artificial possui semelhanças com a rede biológica presente no sistema nervoso central, neste o cômputo de informações realizado do cérebro é feito através de uma vasta quantidade de neurônios interconectados \citep{Feldman1988,Poulton2002}. A comunicação entre essas células é realizada através de impulsos elétricos. Estes são transmitidos e recebidos por meio de sinapses nervosas entre axônios e dendritos. As sinapses são estruturas elementares e uma unidade funcional localizada entre dois neurônios \citep{Krogh2008}.
 
-	\citet{McCulloch1943} redigem o trabalho pioneiro onde foi modelado um neurônio cuja resposta dependia do \textit{input}\footnote{Valor de entrada} que provinha de outros neurônios e do peso utilizado.  Já \citet{Rosenblatt1962} cria a teoria de convergência do \textit{Perceptron} onde ele prova que modelos de neurônios possuem propriedades similares ao cérebro humano \citep{Kanal2001}. Neste sentido as rede neuronais artificiais podem realizar performasses sofisticadas no reconhecimento de padrões, mesmo se alguns neurônios forem destruídos \citep{Levy1997}. \citet{Minsky1969} demonstraram que um único  \textit{Perceptron} somente resolve uma classe muito limitada de problemas que podem ser linearizados.
+	%\citet{McCulloch1943} redigem o trabalho pioneiro onde foi modelado um neurônio cuja resposta dependia do \textit{input}\footnote{Valor de entrada} que provinha de outros neurônios e do peso utilizado.  Já \citet{Rosenblatt1962} cria a teoria de convergência do \textit{Perceptron} onde ele prova que modelos de neurônios possuem propriedades similares ao cérebro humano \citep{Kanal2001}. Neste sentido as rede neuronais artificiais podem realizar performasses sofisticadas no reconhecimento de padrões, mesmo se alguns neurônios forem destruídos \citep{Levy1997}. \citet{Minsky1969} demonstraram que um único  \textit{Perceptron} somente resolve uma classe muito limitada de problemas que podem ser linearizados.
 	
+	Os primeiros mapas auto-organizáveis foram propostos por \citet{Malsburg1976} para explicar o problema do retinotópico da retina para o córtex visual, nos vertebrados superiores. Neste modelo há duas grades bidimensionais separadas de neurônios conectadas entre si. Uma grade representa os neurônios de entrada e a outra os de saída.  A grade de saída  utiliza um mecanismo excitatório de curto alcance bem como outro inibitório de longo alcance \citep{Haykin1999}. 
+	
+	O segundo modelo é introduzido por \citet{Kohonen1989}. Este modelo não pretende explicar em detalhes o funcionamento neurobiológico do cérebro. O modelo captura as características essenciais dos mapas computacionais do cérebro e ainda se mantém tratável do ponto de vista computacional.  O modelo de \citet{Kohonen1989} é mais generalista do que o modelo de \citet{Malsburg1976} na medida que ele é capaz de realizar a redução da dimensionalidade dos dados de entrada \citep{Haykin1999}.
 
 	
 	Neste relatório são apresentados os resultados do Trabalho 03 mapas de Kohonen da disciplina ELE 2394, Redes Neurais I, da Engenharia elétrica.
@@ -195,39 +198,58 @@ Para os parâmetros que não listados, deve-se escolher um valor e explicar a es
 
 \section{Princípio Teórico}
 
-Os primeiros mapas auto-organizáveis foram propostos por \citet{Malsburg1976}.
-
-%O neurônio de \citet{McCulloch1943} propõe um limite binário para a criação de um modelo. Este neurônio artificial registra uma soma de pesos de $n$ sinais de entrada, $x_{j}$, $j=1,2,3,...,n$, e fornece um \textit{output}\footnote{Valor de saída} de $1$ caso esta soma esteja acima do limite $u$. Caso contrário o \textit{output} é $0$. Matematicamente essa relação pode ser descrita de acordo com a Eq. \ref{Eq.neuronio-McCulloch}:
-%
-%\begin{eqnarray}
-%y=\theta \left( \sum^{n}_{j=1} w_{j} x_{j} -u \right)
-%\label{Eq.neuronio-McCulloch}
-%\end{eqnarray}
-%
-%Onde $\theta$ é o passo dado na posição $0$, $w_{j}$ é chamada sinapse-peso associado a um $j_{esimo}$ \textit{input}. A título de simplificação a função limite\footnote{Genericamente chamada de função de ativação} $u$ é considerada um outro peso $w_{0}=-u$ anexado a um neurônio com um \textit{input} constante $x_{0}=1$. Pesos positivos correspondem a uma sinapse \textbf{excitatória}, enquanto pesos negativos correspondem a uma sinapse \textbf{inibitória}. Este modelo contém uma série de simplificações que não refletem o verdadeiro comportamento dos neurônios biológicos \citep{Mao1996}.  
-%
-%Derivações do neurônio de \citet{McCulloch1943} na escolha das funções de ativação. Uma função largamente utilizada é a função sigmóide, que exibe uma suavização dos \textit{outputs} a medida que o valor da função diminui \citep{Mao1996,Misra2010}. Essa função de ativação pode ser expressa de acordo com a Eq. \ref{f.sigmoide}:
-%
-%\begin{eqnarray}
-%g(x)=1/(1+e^{-\beta x})
-%\label{f.sigmoide}
-%\end{eqnarray}
-%
-%Onde $\beta$ é o parâmetro de inclinação. %A Fig. \ref{Esquematico de McCulloch} ilustra a sequência lógica da operação de uma RNA para um neurônio simples de McCulloch-Pitts. 
-%\\
-%\begin{figure*}[!ht]
-%	\centering
-%	\setlength{\fboxsep}{8pt}
-%	\setlength{\fboxrule}{0.1pt}
-%	\fbox{
-%		\includegraphics[scale=0.8]{Images/McCulloch.eps}
-%	}
-%	\caption{Modelo esquemático de um neurônio de McCulloch-Pitts. Onde $x_{1}, x_{2}, ..., x_{n}$ são os \textit{inputs}, $w_{1}, w_{2}, ..., w_{n}$ são os pesos, h é o treino, $g(x)$ é a função de ativação, e $y$ é o \textit{output}.}
-%	\label{Esquematico de McCulloch}
-%\end{figure*}
 
 
+Três processos são envolvidos na formação do mapa auto-organizável, são eles a \textit{organização}, \textit{cooperação}, e \textit{adaptação sináptica}. Na competição, cada padrão de entrada tem um valor calculado com base em uma função discriminante. Esta função fornece as bases para a competição entre os neurônios. O neurônio que obtiver o maior valor para a função discriminante é chamado de neurônio vencedor. Na cooperação o neurônio vencedor determina uma localização topológica de neurônios excitados, fornecendo a base para a interação com os neurônios vizinhos. Na adaptação sináptica os valores da função discriminante em relação ao padrão de entrada tem seus valores iniciais aumentados. 
 
+Considere $\textit{m}$ a representação do espaço de entrada dos dados. E $\textbf{w}_{ij}$ o vetor peso sináptico de cada neurônio da grade. Neste caso todo o neurônio da grade possui a mesma dimensão do espaço de entrada. Sendo assim podemos representar o espaço de entrada $\textit{m}$ e o vetor de pesos sinápticos $\textbf{w}_{j}$ do neurônio $j$, respectivamente como:
+
+\begin{eqnarray}
+	\textbf{x}=[x_{1}, x_{2}, x_{3}, ..., x_{m}]^{T} 
+\end{eqnarray}
+
+\begin{eqnarray}
+	\textbf{w}_{j}= [w_{j1}, w_{j2}, w_{j3}, ..., w_{jm}]^{T}
+\end{eqnarray}
+onde,
+\begin{eqnarray}
+	j=1,2,3,\hdots,l \nonumber
+\end{eqnarray}
+
+Onde $l$ representa o número total de neurônios da grade. A melhor relação dada entre os vetores de entrada e o vetor de pesos sinápticos é dada pelo produto interno $\textbf{w}_{j}^{T}\textbf{x}$ para $j=1,2,3,\hdots,l$ aonde é escolhido o maior valor. Este resultado do produto interno determina a região topológica de vizinhança dos neurônios excitados que deverá ser centrada. Matematicamente é equivalente o produto interno pode ser escrito como a minimização da  distância euclideana entre os vetores $\textbf{x}$ e $\textbf{w}_{j}$. Desta forma ao se usar um índice $i(\textbf{x})$ para identificar a melhor associação entre cada elemento do vetor de entrada e do vetor de pesos, temos:
+
+\begin{eqnarray}
+	i(\textbf{x})= argmin_{j}  \parallel \textbf{x} - \textbf{w}_{j} \parallel
+\end{eqnarray}
+
+onde,
+\begin{eqnarray}
+j=1,2,3,\hdots,l \nonumber
+\end{eqnarray}
+
+Onde $i(\textbf{x})$ é a identidade do neurônio i.
+
+Um neurônio define uma vizinhança topológica $h_{j,i}$ que é uma função da distância $d_{j,i}$ entre o neurônio vencedor $i$ e o excitado $j$. Sendo assim temos:
+
+\begin{eqnarray}
+	h_{j,i(x)}=exp \; ( -\dfrac{d^{2}_{j,i}}{2\sigma^{2}} )
+\end{eqnarray}
+
+Onde $\sigma$ é a largura efetiva da vizinhança topológica. 
+Para que a haja cooperação entre os vizinhos é necessário que a distância lateral $d_{j,i}$ seja dependente da vizinhança topológica $h_{j,i}$.
+
+\begin{eqnarray}
+d^{2}_{j,i}= \parallel \textbf{r}_{j}	- \textbf{r}_{i} \parallel^{2}
+\end{eqnarray}
+
+
+O processo adaptativo de tempo discreto é dado pelo vetor $\textbf{w}_{j}(t+1)$.
+
+\begin{eqnarray}
+	\textbf{w}_{j}(t+1)= \textbf{w}_{j}+\eta(t)h_{j,i(x)}(t)[\textbf{x}-\textbf{w}_{j}(t)]
+\end{eqnarray}
+
+Onde $\eta(t)$ é a taxa de aprendizado estocástica do modelo e $t$ indica o passo iterativo de aprendizado.
 
 \section{Resultados}
 
