@@ -146,7 +146,7 @@
 
 % Write abstract here
 \begin{abstract}
-
+ Este trabalho apresenta o resultado de testes de laboratórios de quatro variáveis utilizando mapas de kohonen utilizando o matlab. Primeramente é apresentada um breve resumo dos conceitos envolvidos na criação desta rede. Foram realizados quatro testes aonde as variáveis de entrada foram normalizadas. No primeiro e segundo teste, o mapa auto-organizado não conseguiu discernir as variáveis encontradas. Diferentemente dos testes 3 e 4 aonde o método de treinamento foi satisfatório para classificação da rede. 
 \end{abstract}
 
 
@@ -253,37 +253,48 @@ Onde $\eta(t)$ é a taxa de aprendizado estocástica do modelo e $t$ indica o pa
 
 \section{Resultados}
 
-\begin{figure*}
+O primeiro teste, o dado 'new-thyroid.data' foi normalizado. Posteriormente, na etapa de treinamento sequencial aonde o dado o vetor de pesos inicial foi determinado por meio do método randômico inicial. O resultado deste teste é apresentado na Fig. \ref{SOM1}.
+
+\begin{figure*}[htb]
 	\centering
 	\includegraphics[scale=0.5]{Images/SOM1.png}
-	\label{SOM1}
 	\caption{Primeiro teste.}
+	\label{SOM1}
 \end{figure*}
+
+O segundo teste o dado 'new-thyroid.data' continuou sendo normalizado. E utilizando o mesmo processo treinamento sequencial randômico anterior o \textit{raninit}. Nas duas normalizações anteriores foram escolhidas a equalização por histograma aproximada com operação parcialmente linear. Neste caso os valores são escalados entre $[0,1]$. O resultado é apresentado na Fig. \ref{SOM2}.
 
 \begin{figure*}
 	\centering
 	\includegraphics[scale=0.5]{Images/SOM2.png}
-	\label{SOM2}
 	\caption{Segundo teste.}
+	\label{SOM2}
 \end{figure*}
+
+O terceiro teste a equalização por histograma aproximada po operação parcialmente linear fora mantida. Contudo, optou-se pela utilização da técnica de treinamento automático  '\textit{som\_make}'. O resultado é apresentado na Fig. \ref{SOM3}.
+
 
 \begin{figure*}
 	\centering
 	\includegraphics[scale=0.5]{Images/SOM3.png}
-	\label{SOM3}
 	\caption{Terceiro teste.}
+	\label{SOM3}
 \end{figure*}
+
+No quarto e último teste optou-se pelo modo de treinamento passo-a-passo \textit{seq\_train}. e o modo de normalização foi mantido dos últimos testes realizados. O resultado é apresentado na Fig. \ref{SOM4}.
 
 \begin{figure*}
 	\centering
 	\includegraphics[scale=0.5]{Images/SOM4.png}
-	\label{SOM4}
 	\caption{Quarto teste.}
+	\label{SOM4}
 \end{figure*}
 
 \section{Conclusões}
 
+É nítido que nos testes $1$ e $2$ o neuro-cortex artificial não conseguiu representar claramente as áreas específicas do aprendizado das variáveis de 1 até 4. 
 
+Diferentemente os testes 3 e 2 apresentaram os melhores resultados com uma clara separação entre os neuro-cortex artificiais. Isso se deve a mudança de estratégia na etapa de treinamento da rede. Com o treinamento passo-a-passo foi possível caracterizar melhor as variáveis do problema. 
 
 
 % Now we need a bibliography:
